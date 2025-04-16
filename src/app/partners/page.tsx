@@ -12,7 +12,7 @@ const partners = [
 ];
 
 const donors = [
-  { name: 'Livermore Rotary', logo: '/donors/livermore_rotary.JPG' },
+  { name: 'Rotary Club of Livermore', logo: '/donors/livermore_rotary.JPG' },
   { name: 'Kannada Koota of Northern California', logo: '/donors/kannada_koota_of_northern_california.JPG' },
   { name: 'Bollywood 92.3', logo: '/donors/bollywood_923.JPG' },
   { name: 'Organizing with Love LLC', logo: '/donors/organizing_with_love_llc.PNG' },

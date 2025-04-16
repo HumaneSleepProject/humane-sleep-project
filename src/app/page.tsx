@@ -41,7 +41,7 @@ export default function Home() {
                 Humane Sleep Project
               </h1>
               <p className="text-responsive text-gray-600 mb-8">
-                Dedicated to improving sleep health and awareness through education, research, and community support.
+              Providing Compassion, One Sleep at a Time.
               </p>
               <Link href="/about" className="btn-primary inline-block">
                 Learn More

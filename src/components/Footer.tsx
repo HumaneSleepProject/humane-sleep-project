@@ -21,7 +21,7 @@ export default function Footer() {
               Humane Sleep Project
             </Typography>
             <Typography variant="body2" color="inherit">
-              Dedicated to improving sleep health and awareness through education, research, and community support.
+            Providing Compassion, One Sleep at a Time
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
