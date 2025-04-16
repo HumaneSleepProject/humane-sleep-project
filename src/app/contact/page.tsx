@@ -26,7 +26,7 @@ export default function ContactPage() {
       } else {
         setError('There was a problem sending your message. Please try again.');
       }
-    } catch (err) {
+    } catch {
       setError('There was a problem sending your message. Please try again.');
     }
   };

@@ -5,27 +5,39 @@ import ImageMasonry from "@/components/ImageMasonry";
 const sampleImages = [
   {
     img: "/images/gallery/sleep1.jpg",
-    title: "Healthy Sleep Habits"
+    title: "Healthy Sleep Habits",
+    width: 800,
+    height: 600
   },
   {
     img: "/images/gallery/sleep2.webp",
-    title: "Sleep Research"
+    title: "Sleep Research",
+    width: 800,
+    height: 600
   },
   {
     img: "/images/gallery/sleep3.webp",
-    title: "Community Support"
+    title: "Community Support",
+    width: 800,
+    height: 600
   },
   {
     img: "/images/gallery/sleep4.webp",
-    title: "Education Programs"
+    title: "Education Programs",
+    width: 800,
+    height: 600
   },
   {
     img: "/images/gallery/sleep5.jpg",
-    title: "Wellness Workshops"
+    title: "Wellness Workshops",
+    width: 800,
+    height: 600
   },
   {
     img: "/images/gallery/sleep6.jpg",
-    title: "Sleep Awareness"
+    title: "Sleep Awareness",
+    width: 800,
+    height: 600
   }
 ];
 

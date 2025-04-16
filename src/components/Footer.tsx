@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Grid, Typography, Link, IconButton } from '@mui/material';
+import { Box, Container, Typography, Link, IconButton } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -15,16 +15,16 @@ export default function Footer() {
       }}
     >
       <Container maxWidth="lg" sx={{ py: 3, px: 2 }}>
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={4}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, 1fr)' }, gap: 4 }}>
+          <Box>
             <Typography variant="h6" color="inherit" gutterBottom>
               Humane Sleep Project
             </Typography>
             <Typography variant="body2" color="inherit">
-            Providing Compassion, One Sleep at a Time
+              Providing Compassion, One Sleep at a Time
             </Typography>
-          </Grid>
-          <Grid item xs={12} sm={4}>
+          </Box>
+          <Box>
             <Typography variant="h6" color="inherit" gutterBottom>
               Quick Links
             </Typography>
@@ -42,8 +42,8 @@ export default function Footer() {
                 Contact
               </Link>
             </Box>
-          </Grid>
-          <Grid item xs={12} sm={4}>
+          </Box>
+          <Box>
             <Typography variant="h6" color="inherit" gutterBottom>
               Connect With Us
             </Typography>
@@ -82,8 +82,8 @@ export default function Footer() {
             <Typography variant="body2" color="inherit">
               Phone: (555) 123-4567
             </Typography>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
         <Box sx={{ mt: 4, pt: 2, borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
           <Typography variant="body2" color="inherit" align="center">
             © {new Date().getFullYear()} Humane Sleep Project. All rights reserved.

@@ -3,10 +3,13 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
+import Image from 'next/image';
 
 interface ImageItem {
   img: string;
   title: string;
+  width: number;
+  height: number;
 }
 
 interface ImageMasonryProps {
@@ -31,16 +34,16 @@ export default function ImageMasonry({ images }: ImageMasonryProps) {
               height: 'fit-content',
             }}
           >
-            <img
+            <Image
               src={item.img}
               alt={item.title}
-              loading="lazy"
+              width={item.width}
+              height={item.height}
               style={{
-                borderRadius: 4,
-                display: 'block',
                 width: '100%',
                 height: 'auto',
                 objectFit: 'cover',
+                borderRadius: '8px',
               }}
             />
           </Box>

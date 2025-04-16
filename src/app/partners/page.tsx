@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Typography, Box, Grid } from '@mui/material';
+import { Container, Typography, Box } from '@mui/material';
 import Image from 'next/image';
 
 const partners = [
@@ -53,59 +53,58 @@ export default function PartnersPage() {
         </Typography>
       </Box>
 
-      <Grid container spacing={4} justifyContent="center" sx={{ mb: 8 }}>
+      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }, gap: 4, mb: 8 }}>
         {partners.map((partner, index) => (
-          <Grid item xs={6} sm={4} md={3} key={index}>
+          <Box
+            key={index}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+            }}
+          >
             <Box
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
+                width: 180,
+                height: 180,
+                position: 'relative',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                mb: 2,
+                border: '2px solid',
+                borderColor: 'var(--primary-purple)',
               }}
             >
-              <Box
-                sx={{
-                  width: 180,
-                  height: 180,
-                  position: 'relative',
-                  borderRadius: '50%',
-                  overflow: 'hidden',
-                  mb: 2,
-                  border: '2px solid',
-                  borderColor: 'var(--primary-purple)',
+              <Image
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                fill
+                style={{
+                  objectFit: 'cover',
                 }}
-              >
-                <Image
-                  src={partner.logo}
-                  alt={`${partner.name} logo`}
-                  fill
-                  style={{
-                    objectFit: 'cover',
-                  }}
-                />
-              </Box>
-              <Typography 
-                variant="h6" 
-                component="h3" 
-                sx={{ 
-                  color: 'var(--primary-purple)',
-                  fontWeight: 600,
-                  fontSize: '1.1rem',
-                  minHeight: '2.5em',
-                  display: 'flex',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  width: '100%',
-                  justifyContent: 'center'
-                }}
-              >
-                {partner.name}
-              </Typography>
+              />
             </Box>
-          </Grid>
+            <Typography 
+              variant="h6" 
+              component="h3" 
+              sx={{ 
+                color: 'var(--primary-purple)',
+                fontWeight: 600,
+                fontSize: '1.1rem',
+                minHeight: '2.5em',
+                display: 'flex',
+                alignItems: 'center',
+                textAlign: 'center',
+                width: '100%',
+                justifyContent: 'center'
+              }}
+            >
+              {partner.name}
+            </Typography>
+          </Box>
         ))}
-      </Grid>
+      </Box>
 
       {/* Donors Section */}
       <Box sx={{ textAlign: 'center', mb: 6 }}>
@@ -135,55 +134,54 @@ export default function PartnersPage() {
         </Typography>
       </Box>
 
-      <Grid container spacing={4} justifyContent="center">
+      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }, gap: 4 }}>
         {donors.map((donor, index) => (
-          <Grid item xs={6} sm={4} md={3} key={index}>
+          <Box
+            key={index}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+            }}
+          >
             <Box
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
+                width: 240,
+                height: 160,
+                position: 'relative',
+                mb: 2,
               }}
             >
-              <Box
-                sx={{
-                  width: 240,
-                  height: 160,
-                  position: 'relative',
-                  mb: 2,
+              <Image
+                src={donor.logo}
+                alt={`${donor.name} logo`}
+                fill
+                style={{
+                  objectFit: 'contain',
                 }}
-              >
-                <Image
-                  src={donor.logo}
-                  alt={`${donor.name} logo`}
-                  fill
-                  style={{
-                    objectFit: 'contain',
-                  }}
-                />
-              </Box>
-              <Typography 
-                variant="subtitle1" 
-                component="h3"
-                sx={{ 
-                  color: 'var(--primary-purple)',
-                  fontWeight: 500,
-                  fontSize: '1rem',
-                  minHeight: '2.5em',
-                  display: 'flex',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  width: '100%',
-                  justifyContent: 'center'
-                }}
-              >
-                {donor.name}
-              </Typography>
+              />
             </Box>
-          </Grid>
+            <Typography 
+              variant="subtitle1" 
+              component="h3"
+              sx={{ 
+                color: 'var(--primary-purple)',
+                fontWeight: 500,
+                fontSize: '1rem',
+                minHeight: '2.5em',
+                display: 'flex',
+                alignItems: 'center',
+                textAlign: 'center',
+                width: '100%',
+                justifyContent: 'center'
+              }}
+            >
+              {donor.name}
+            </Typography>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Container>
   );
 } 
