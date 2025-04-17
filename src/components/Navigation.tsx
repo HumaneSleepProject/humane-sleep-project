@@ -1,9 +1,11 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { AppBar, Toolbar, Typography, Tabs, Tab, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Tabs, Tab, Box, IconButton, Drawer, List, ListItemButton, ListItemText, useMediaQuery, useTheme } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const navigationItems = [
   { label: 'Home', path: '/' },
@@ -17,11 +19,46 @@ const navigationItems = [
 export default function Navigation() {
   const router = useRouter();
   const pathname = usePathname();
-  const currentTabIndex = navigationItems.findIndex(item => item.path === pathname);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    router.push(navigationItems[newValue].path);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
   };
+
+  const handleNavigation = (path: string) => {
+    router.push(path);
+    setMobileOpen(false);
+  };
+
+  const drawer = (
+    <List>
+      {navigationItems.map((item) => (
+        <ListItemButton 
+          key={item.path}
+          onClick={() => handleNavigation(item.path)}
+          selected={pathname === item.path}
+          sx={{
+            '&.Mui-selected': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              },
+            },
+          }}
+        >
+          <ListItemText 
+            primary={item.label} 
+            sx={{ 
+              color: pathname === item.path ? 'white' : 'rgba(255, 255, 255, 0.7)',
+              textAlign: 'center',
+            }} 
+          />
+        </ListItemButton>
+      ))}
+    </List>
+  );
 
   return (
     <AppBar 
@@ -48,27 +85,59 @@ export default function Navigation() {
           </Link>
         </Box>
         
-        <Tabs
-          value={currentTabIndex}
-          onChange={handleChange}
-          textColor="inherit"
-          indicatorColor="secondary"
-          sx={{
-            '& .MuiTabs-indicator': {
-              backgroundColor: 'white',
-            },
-            '& .MuiTab-root': {
-              color: 'rgba(255, 255, 255, 0.7)',
-              '&.Mui-selected': {
-                color: 'white',
+        {isMobile ? (
+          <>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={handleDrawerToggle}
+              sx={{ ml: 'auto' }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              variant="temporary"
+              anchor="right"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+              sx={{
+                '& .MuiDrawer-paper': {
+                  boxSizing: 'border-box',
+                  width: 240,
+                  backgroundColor: 'var(--primary-purple)',
+                },
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </>
+        ) : (
+          <Tabs
+            value={navigationItems.findIndex(item => item.path === pathname)}
+            onChange={(_, newValue) => handleNavigation(navigationItems[newValue].path)}
+            textColor="inherit"
+            indicatorColor="secondary"
+            sx={{
+              '& .MuiTabs-indicator': {
+                backgroundColor: 'white',
               },
-            },
-          }}
-        >
-          {navigationItems.map((item) => (
-            <Tab key={item.path} label={item.label} />
-          ))}
-        </Tabs>
+              '& .MuiTab-root': {
+                color: 'rgba(255, 255, 255, 0.7)',
+                '&.Mui-selected': {
+                  color: 'white',
+                },
+              },
+            }}
+          >
+            {navigationItems.map((item) => (
+              <Tab key={item.path} label={item.label} />
+            ))}
+          </Tabs>
+        )}
       </Toolbar>
     </AppBar>
   );
