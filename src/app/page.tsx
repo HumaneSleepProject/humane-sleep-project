@@ -4,25 +4,25 @@ import ImageMasonry from "@/components/ImageMasonry";
 
 const sampleImages = [
   {
-    img: "/images/gallery/sleep1.jpg",
+    img: "/images/gallery/sleep6.jpg",
     title: "Healthy Sleep Habits",
     width: 800,
     height: 600
   },
   {
-    img: "/images/gallery/sleep2.webp",
+    img: "/images/gallery/sleep2.jpg",
     title: "Sleep Research",
     width: 800,
     height: 600
   },
   {
-    img: "/images/gallery/sleep3.webp",
+    img: "/images/gallery/sleep3.jpg",
     title: "Community Support",
     width: 800,
     height: 600
   },
   {
-    img: "/images/gallery/sleep4.webp",
+    img: "/images/gallery/sleep4.jpg",
     title: "Education Programs",
     width: 800,
     height: 600
@@ -34,7 +34,25 @@ const sampleImages = [
     height: 600
   },
   {
-    img: "/images/gallery/sleep6.jpg",
+    img: "/images/gallery/sleep1.jpg",
+    title: "Sleep Awareness",
+    width: 800,
+    height: 600
+  },
+  {
+    img: "/images/gallery/sleep7.jpg",
+    title: "Sleep Awareness",
+    width: 800,
+    height: 600
+  },
+  {
+    img: "/images/gallery/sleep8.jpg",
+    title: "Sleep Awareness",
+    width: 800,
+    height: 600
+  },
+  {
+    img: "/images/gallery/sleep9.jpg",
     title: "Sleep Awareness",
     width: 800,
     height: 600
