@@ -98,7 +98,7 @@ export default function Home() {
             Our Mission
           </h2>
           <p className="text-responsive text-gray-600 max-w-3xl mx-auto mb-12">
-            We are committed to promoting healthy sleep habits and raising awareness about the importance of quality sleep for overall well-being.
+            To help as many homeless individuals as possible through compassion, connection, and sustained support, recognizing the importance of dignity, safety, and empowerment in their journey toward stability.
           </p>
           <div className="mt-8">
             <ImageMasonry images={sampleImages} />

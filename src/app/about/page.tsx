@@ -21,7 +21,7 @@ const teamMembers: TeamMember[] = [
     name: "Abhi Vishwas",
     role: "CFO",
     image: "/team/abhi_pic.jpg",
-    bio: "You know I'm a chiefer."
+    bio: "Abhi Vishwas serves as CFO of the Humane Sleep Project, where he manages budgeting, grants, and financial strategy to maximize impact for the unhoused community. With a background in technical sales and management, he brings a data-driven, scalable approach to nonprofit operations. His passion for social equity and deep respect for the unhoused population fuel his commitment to sustainable, community-first solutions."
   },
   {
     name: "Aditi Sharma",

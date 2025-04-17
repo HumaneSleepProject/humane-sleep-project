@@ -8,7 +8,7 @@ const partners = [
   { name: 'Movement Lab Chiropractic', logo: '/partners/movement_lab.png' },
   { name: 'Livermore Symphony', logo: '/partners/livermore_symphony.jpg' },
   { name: 'Cornerstone Church', logo: '/partners/cornerstone_church.png' },
-  { name: 'Shepherds Gate', logo: '/partners/shepherds_gate.jpg' },
+  { name: 'Shepherd\'s Gate', logo: '/partners/shepherds_gate.jpg' },
 ];
 
 
