@@ -15,7 +15,7 @@ const teamMembers: TeamMember[] = [
     name: "Sidharth Sreedar",
     role: "CEO",
     image: "/team/sid_pic.jpg",
-    bio: "My name is Sidharth Sreedar, and I'm the CEO of Humane Sleep Project. I created this organization envisioning a future of corrected sleeping measures for people of unprivileged communities. This endeavor will help the community foster change in others, and this is something in my personal life I strive to do. As of right now, I am attending the Life Chiropractic College West in order to become a Chiropractor."
+    bio: "My name is Sidharth Sreedar, and I'm the CEO of Humane Sleep Project. I created this organization envisioning a future of corrected sleeping measures for people of unprivileged communities. This endeavor will help the community foster change in others, and this is something in my personal life I strive to do."
   },
   {
     name: "Abhi Vishwas",
