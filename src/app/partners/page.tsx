@@ -11,6 +11,7 @@ const partners = [
   { name: 'Shepherds Gate', logo: '/partners/shepherds_gate.jpg' },
 ];
 
+
 const donors = [
   { name: 'Rotary Club of Livermore', logo: '/donors/livermore_rotary.JPG' },
   { name: 'Kannada Koota of Northern California', logo: '/donors/kannada_koota_of_northern_california.JPG' },
