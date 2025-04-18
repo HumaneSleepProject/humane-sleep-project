@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { AppBar, Toolbar, Typography, Tabs, Tab, Box, IconButton, Drawer, List, ListItemButton, ListItemText, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Toolbar, Typography, Tabs, Tab, Box, IconButton, Drawer, List, ListItemButton, ListItemText, useMediaQuery, useTheme, alpha } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -33,26 +33,40 @@ export default function Navigation() {
   };
 
   const drawer = (
-    <List>
+    <List sx={{ 
+      py: 2,
+      background: `linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%)`,
+    }}>
       {navigationItems.map((item) => (
         <ListItemButton 
           key={item.path}
           onClick={() => handleNavigation(item.path)}
           selected={pathname === item.path}
           sx={{
+            mx: 2,
+            my: 0.5,
+            borderRadius: 2,
+            transition: 'all 0.2s ease-in-out',
             '&.Mui-selected': {
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
               '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                backgroundColor: 'rgba(255, 255, 255, 0.25)',
               },
+            },
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              transform: 'translateX(4px)',
             },
           }}
         >
           <ListItemText 
             primary={item.label} 
             sx={{ 
-              color: pathname === item.path ? 'white' : 'rgba(255, 255, 255, 0.7)',
+              color: pathname === item.path ? 'white' : 'rgba(255, 255, 255, 0.8)',
               textAlign: 'center',
+              '& .MuiTypography-root': {
+                fontWeight: pathname === item.path ? 600 : 400,
+              },
             }} 
           />
         </ListItemButton>
@@ -64,22 +78,53 @@ export default function Navigation() {
     <AppBar 
       position="fixed" 
       sx={{ 
-        backgroundColor: 'var(--primary-purple)',
+        background: `linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%)`,
         zIndex: 1200,
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+        boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+        backdropFilter: 'blur(10px)',
       }}
     >
-      <Toolbar>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
+      <Toolbar sx={{ 
+        minHeight: { xs: 64, md: 72 },
+        px: { xs: 2, md: 4 },
+      }}>
+        <Box sx={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          flexGrow: 1,
+          gap: 2,
+        }}>
+          <Link 
+            href="/" 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              textDecoration: 'none', 
+              color: 'inherit',
+              transition: 'transform 0.2s ease-in-out',
+            }}
+            className="hover:scale-105"
+          >
             <Image
               src="/logo.png"
               alt="Humane Sleep Project Logo"
-              width={40}
-              height={40}
-              style={{ marginRight: '16px' }}
+              width={48}
+              height={48}
+              style={{ 
+                marginRight: '16px',
+                borderRadius: '8px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              }}
             />
-            <Typography variant="h6" component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Typography 
+              variant="h6" 
+              component="div" 
+              sx={{ 
+                display: { xs: 'none', sm: 'block' },
+                fontWeight: 600,
+                letterSpacing: '0.5px',
+              }}
+            >
               Humane Sleep Project
             </Typography>
           </Link>
@@ -92,7 +137,13 @@ export default function Navigation() {
               aria-label="open drawer"
               edge="end"
               onClick={handleDrawerToggle}
-              sx={{ ml: 'auto' }}
+              sx={{ 
+                ml: 'auto',
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'rotate(90deg)',
+                },
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -102,13 +153,14 @@ export default function Navigation() {
               open={mobileOpen}
               onClose={handleDrawerToggle}
               ModalProps={{
-                keepMounted: true, // Better open performance on mobile.
+                keepMounted: true,
               }}
               sx={{
                 '& .MuiDrawer-paper': {
                   boxSizing: 'border-box',
-                  width: 240,
-                  backgroundColor: 'var(--primary-purple)',
+                  width: 280,
+                  background: 'transparent',
+                  border: 'none',
                 },
               }}
             >
@@ -124,17 +176,29 @@ export default function Navigation() {
             sx={{
               '& .MuiTabs-indicator': {
                 backgroundColor: 'white',
+                height: 3,
+                borderRadius: '3px 3px 0 0',
               },
               '& .MuiTab-root': {
                 color: 'rgba(255, 255, 255, 0.7)',
+                transition: 'all 0.2s ease-in-out',
                 '&.Mui-selected': {
                   color: 'white',
+                  fontWeight: 600,
+                },
+                '&:hover': {
+                  color: 'white',
+                  transform: 'translateY(-2px)',
                 },
               },
             }}
           >
             {navigationItems.map((item) => (
-              <Tab key={item.path} label={item.label} />
+              <Tab 
+                key={item.path} 
+                label={item.label}
+                aria-label={`Navigate to ${item.label}`}
+              />
             ))}
           </Tabs>
         )}
