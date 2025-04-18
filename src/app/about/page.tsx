@@ -33,7 +33,7 @@ const teamMembers: TeamMember[] = [
     name: "Siddharth Iyer",
     role: "Intern",
     image: "/team/sid_iyer_pic.jpg",
-    bio: "Siddarth joined the homeless nonprofit because he wants to help people who don’t have a home feel cared for and noticed. He hopes to make a real difference by giving his time, sharing ideas, and supporting others in getting back on their feet."
+    bio: "Siddarth joined the Humane Sleep Project because he wants people without homes to feel cared for and noticed. He hopes to make a real difference by giving his time, sharing his ideas, and supporting others as they get back on their feet."
   },
   {
     name: "Anushka Sharma",

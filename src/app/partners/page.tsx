@@ -21,6 +21,8 @@ const donors = [
   { name: 'Sewa Diwali', logo: '/donors/sewa_diwali.jpeg' },
   { name: 'Tri Valley Kannada Sangha', logo: '/donors/tri_valley_kannada_sangha.JPG' },
   { name: 'Tri Valley 30 TV', logo: '/donors/tri_valley_30_tv.JPG' },
+  { name: 'Livermore Police Department', logo: '/donors/livermore_police.jpg' },
+  { name: 'Goodness Village', logo: '/donors/goodness_village.jpg' },
 ];
 
 export default function PartnersPage() {
