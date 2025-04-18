@@ -39,7 +39,7 @@ const teamMembers: TeamMember[] = [
     name: "Anushka Sharma",
     role: "Intern",
     image: "/team/anushka_pic.jpg",
-    bio: "huh huh huh huh huh "
+    bio: "Anushka is a highly motivated individual that wants to see access to provisions for everyone. Through her work as an intern, she has found an interest in helping others."
   }
 ];
 
