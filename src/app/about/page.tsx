@@ -15,7 +15,7 @@ const teamMembers: TeamMember[] = [
     name: "Sidharth Sreedar",
     role: "CEO",
     image: "/team/sid_pic.jpg",
-    bio: "My name is Sidharth Sreedar, and I'm the CEO of Humane Sleep Project. I created this organization envisioning a future of corrected sleeping measures for people of unprivileged communities. This endeavor will help the community foster change in others, and this is something in my personal life I strive to do."
+    bio: "Sidharth Sreedar is the CEO of the Humane Sleep Project, an organization he helped found with a vision of improving sleeping conditions for individuals in underprivileged communities. Through this endeavor, he aims to inspire positive change within the community—something he is deeply committed to in his personal life as well."
   },
   {
     name: "Abhi Vishwas",
@@ -27,7 +27,19 @@ const teamMembers: TeamMember[] = [
     name: "Aditi Sharma",
     role: "COO",
     image: "/team/aditi_pic.jpg",
-    bio: "My name is Aditi Sharma and I am the COO and Secretary of Humane Sleep Project. I graduated from UC Davis and aspire to be a physician. I co-founded the Humane Sleep Project with a belief that every individual, regardless of their financial situation, should have access to essential sleeping supplies. I am committed to providing kindness and vital resources to ensure the well-being of every individual experiencing homelessness through HSP!"
+    bio: "Aditi Sharma is the COO and Secretary of the Humane Sleep Project. A graduate of UC Davis and an aspiring physician, she co-founded the organization with the belief that everyone—regardless of their financial situation—deserves access to essential sleeping supplies. Through her work with HSP, she is dedicated to offering kindness and vital resources to support the well-being of individuals experiencing homelessness."
+  },
+  {
+    name: "Siddharth Iyer",
+    role: "Intern",
+    image: "/team/sid_iyer_pic.jpg",
+    bio: "Siddarth joined the homeless nonprofit because he wants to help people who don’t have a home feel cared for and noticed. He hopes to make a real difference by giving his time, sharing ideas, and supporting others in getting back on their feet."
+  },
+  {
+    name: "Anushka Sharma",
+    role: "Intern",
+    image: "/team/anushka_pic.jpg",
+    bio: "huh huh huh huh huh "
   }
 ];
 
