@@ -5,18 +5,18 @@ import { AppBar, Toolbar, Typography, Tabs, Tab, Box, IconButton, Drawer, List, 
 import MenuIcon from '@mui/icons-material/Menu';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
-const navigationItems = [
+const NAVIGATION_ITEMS = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
   { label: 'Partners', path: '/partners' },
   { label: 'Events', path: '/events' },
   { label: 'Information', path: '/information' },
   { label: 'Contact', path: '/contact' },
-];
+] as const;
 
-export default function Navigation() {
+function Navigation() {
   const router = useRouter();
   const pathname = usePathname();
   const theme = useTheme();
@@ -37,7 +37,7 @@ export default function Navigation() {
       py: 2,
       background: `linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%)`,
     }}>
-      {navigationItems.map((item) => (
+      {NAVIGATION_ITEMS.map((item) => (
         <ListItemButton 
           key={item.path}
           onClick={() => handleNavigation(item.path)}
@@ -110,6 +110,8 @@ export default function Navigation() {
               alt="Humane Sleep Project Logo"
               width={48}
               height={48}
+              priority
+              quality={90}
               style={{ 
                 marginRight: '16px',
                 borderRadius: '8px',
@@ -169,8 +171,8 @@ export default function Navigation() {
           </>
         ) : (
           <Tabs
-            value={navigationItems.findIndex(item => item.path === pathname)}
-            onChange={(_, newValue) => handleNavigation(navigationItems[newValue].path)}
+            value={NAVIGATION_ITEMS.findIndex(item => item.path === pathname)}
+            onChange={(_, newValue) => handleNavigation(NAVIGATION_ITEMS[newValue].path)}
             textColor="inherit"
             indicatorColor="secondary"
             sx={{
@@ -193,7 +195,7 @@ export default function Navigation() {
               },
             }}
           >
-            {navigationItems.map((item) => (
+            {NAVIGATION_ITEMS.map((item) => (
               <Tab 
                 key={item.path} 
                 label={item.label}
@@ -205,4 +207,6 @@ export default function Navigation() {
       </Toolbar>
     </AppBar>
   );
-} 
+}
+
+export default memo(Navigation); 
