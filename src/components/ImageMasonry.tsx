@@ -39,6 +39,10 @@ export default function ImageMasonry({ images }: ImageMasonryProps) {
               alt={item.title}
               width={item.width}
               height={item.height}
+              loading={index < 3 ? "eager" : "lazy"}
+              priority={index < 3}
+              quality={85}
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               style={{
                 width: '100%',
                 height: 'auto',
