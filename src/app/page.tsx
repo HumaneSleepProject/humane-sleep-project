@@ -71,10 +71,33 @@ export default function Home() {
                 Humane Sleep Project
               </h1>
               <p className="text-responsive text-gray-600 mb-8">
-              Providing Compassion, One Sleep at a Time.
+                Providing Compassion, One Sleep at a Time.
               </p>
-              <Link href="/about" className="btn-primary inline-block">
-                Learn More
+              <Link 
+                href="https://www.paypal.com/donate/?hosted_button_id=24CGE6XCKU4H4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 rounded-lg text-white font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                style={{
+                  background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                  boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)',
+                }}
+              >
+                <span className="mr-2">Donate Now</span>
+                <svg 
+                  className="w-5 h-5" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M13 7l5 5m0 0l-5 5m5-5H6" 
+                  />
+                </svg>
               </Link>
             </div>
             <div className="flex-1 mt-8 sm:mt-0">
