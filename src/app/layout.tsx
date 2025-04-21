@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Stars from "@/components/Stars";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,11 +49,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-white`}>
+      <body className={`${inter.className}`}>
         <div className="flex flex-col min-h-screen relative">
-          <div className="fixed inset-0 bg-[var(--primary-purple)] -z-10" />
+          <Stars />
           <Navigation />
-          <main className="flex-grow bg-white pt-[64px]">
+          <main className="flex-grow pt-[64px]">
             {children}
           </main>
           <Footer />

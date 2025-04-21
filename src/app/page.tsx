@@ -63,14 +63,14 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-b from-white to-gray-100">
+      <section className="section-padding">
         <div className="container-responsive">
           <div className="flex-responsive items-center justify-between gap-8">
             <div className="flex-1">
-              <h1 className="heading-responsive font-bold text-[var(--primary-purple)] mb-6">
+              <h1 className="heading-responsive font-bold text-white mb-6">
                 Humane Sleep Project
               </h1>
-              <p className="text-responsive text-gray-600 mb-8">
+              <p className="text-responsive text-gray-200 mb-8">
                 Providing Compassion, One Sleep at a Time.
               </p>
               <Link 
@@ -115,14 +115,8 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding">
         <div className="container-responsive text-center">
-          <h2 className="heading-responsive font-bold text-[var(--primary-purple)] mb-8">
-            Our Mission
-          </h2>
-          <p className="text-responsive text-gray-600 max-w-3xl mx-auto mb-12">
-            To help as many homeless individuals as possible through compassion, connection, and sustained support, recognizing the importance of dignity, safety, and empowerment in their journey toward stability.
-          </p>
           <div className="mt-8">
             <ImageMasonry images={sampleImages} />
           </div>
