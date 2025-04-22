@@ -1,36 +1,167 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Humane Sleep Project Website
 
-## Getting Started
+A modern, responsive website for the Humane Sleep Project, built with Next.js 13+ and TypeScript. This website serves as the digital presence for the Humane Sleep Project.
 
-First, run the development server:
+## 🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Modern Design**: Beautiful starry night theme with glassy UI elements
+- **Responsive Layout**: Fully responsive design that works on all devices
+- **Performance Optimized**: Fast loading times and smooth animations
+- **Accessibility**: Built with accessibility in mind
+- **SEO Friendly**: Optimized for search engines
+- **Interactive Elements**: Engaging user interface with smooth transitions
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 13+](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: 
+  - [Tailwind CSS](https://tailwindcss.com/)
+  - [Material-UI](https://mui.com/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 📦 Project Structure
+
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── page.tsx           # Home page
+│   ├── layout.tsx         # Root layout
+│   ├── globals.css        # Global styles
+│   ├── about/             # About page
+│   ├── contact/           # Contact page
+│   ├── information/       # Information page
+│   ├── events/            # Events page
+│   └── partners/          # Partners page
+├── components/            # Shared components
+│   ├── Navigation.tsx     # Navigation component
+│   ├── Footer.tsx         # Footer component
+│   ├── ImageMasonry.tsx   # Image gallery component
+│   └── Stars.tsx          # Background stars component
+├── assets/               # Static assets
+└── theme.ts             # Theme configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18.0.0 or later
+- npm or yarn
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/humane-sleep-project.git
+   cd humane-sleep-project
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-## Deploy on Vercel
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏗️ Building for Production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+# or
+yarn build
+```
+
+## 🧪 Testing
+
+```bash
+npm run test
+# or
+yarn test
+```
+
+## 📝 Code Style
+
+This project uses ESLint and Prettier for code formatting. To format your code:
+
+```bash
+npm run lint
+# or
+yarn lint
+```
+
+## 🌐 Deployment
+
+The site is deployed on Vercel. Any push to the main branch will trigger a new deployment.
+
+## 🔧 Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+NEXT_PUBLIC_SITE_URL=your-site-url
+```
+
+## 📱 Responsive Design
+
+The website is fully responsive and optimized for:
+- Mobile devices
+- Tablets
+- Desktop computers
+- Large screens
+
+## 🎨 Theme Customization
+
+The theme can be customized by modifying the `src/theme.ts` file. The current theme includes:
+- Dark mode with starry background
+- Glassy UI elements
+- Custom color palette
+- Responsive typography
+
+## 🔍 SEO Optimization
+
+The website is optimized for search engines with:
+- Proper meta tags
+- Semantic HTML
+- Optimized images
+- Fast loading times
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Team
+
+- [Vinay Srinivasan] - Lead Developer
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/) for the amazing framework
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+- [Material-UI](https://mui.com/) for the component library
+- [Framer Motion](https://www.framer.com/motion/) for the animations
+
+## 📞 Contact
+
+For any questions or concerns, please contact:
+- Organization email: HumaneSleepProject@gmail.com
+- Developer email: zapperwing@gmail.com
+- Website: [humanesleepproject.com](https://humanesleepproject.com)
