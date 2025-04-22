@@ -1,3 +1,5 @@
+import { RESOURCE_MAP_URL } from '@/utils/constants';
+
 export default function Information() {
   return (
     <main className="min-h-screen">
@@ -14,7 +16,7 @@ export default function Information() {
             </h2>
             <div className="w-full h-[500px] rounded-lg overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/d/embed?mid=13vmK1r7q7i_r85lGnPHhLw5DK7YPDzc&ehbc=2E312F"
+                src={RESOURCE_MAP_URL}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

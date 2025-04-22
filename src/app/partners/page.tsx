@@ -2,28 +2,7 @@
 
 import { Container, Typography, Box } from '@mui/material';
 import Image from 'next/image';
-
-const partners = [
-  { name: 'Salesforce', logo: '/partners/salesforce.PNG' },
-  { name: 'Movement Lab Chiropractic', logo: '/partners/movement_lab.png' },
-  { name: 'Livermore Symphony', logo: '/partners/livermore_symphony.jpg' },
-  { name: 'Cornerstone Church', logo: '/partners/cornerstone_church.png' },
-  { name: 'Shepherd\'s Gate', logo: '/partners/shepherds_gate.jpg' },
-];
-
-
-const donors = [
-  { name: 'Rotary Club of Livermore', logo: '/donors/livermore_rotary.JPG' },
-  { name: 'Kannada Koota of Northern California', logo: '/donors/kannada_koota_of_northern_california.JPG' },
-  { name: 'Bollywood 92.3', logo: '/donors/bollywood_923.JPG' },
-  { name: 'Organizing with Love LLC', logo: '/donors/organizing_with_love_llc.PNG' },
-  { name: 'Del Valle Continuation School', logo: '/donors/del_valle_continuation_school.png' },
-  { name: 'Sewa Diwali', logo: '/donors/sewa_diwali.jpeg' },
-  { name: 'Tri Valley Kannada Sangha', logo: '/donors/tri_valley_kannada_sangha.JPG' },
-  { name: 'Tri Valley 30 TV', logo: '/donors/tri_valley_30_tv.JPG' },
-  { name: 'Livermore Police Department', logo: '/donors/livermore_police.jpg' },
-  { name: 'Goodness Village', logo: '/donors/goodness_village.jpg' },
-];
+import { PARTNERS, DONORS } from '@/utils/constants';
 
 export default function PartnersPage() {
   return (
@@ -57,7 +36,7 @@ export default function PartnersPage() {
       </Box>
 
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }, gap: 4, mb: 8 }}>
-        {partners.map((partner, index) => (
+        {PARTNERS.map((partner, index) => (
           <Box
             key={index}
             sx={{
@@ -144,7 +123,7 @@ export default function PartnersPage() {
       </Box>
 
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }, gap: 4 }}>
-        {donors.map((donor, index) => (
+        {DONORS.map((donor, index) => (
           <Box
             key={index}
             sx={{

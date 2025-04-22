@@ -6,15 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, memo } from 'react';
-
-const NAVIGATION_ITEMS = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Partners', path: '/partners' },
-  { label: 'Events', path: '/events' },
-  { label: 'Information', path: '/information' },
-  { label: 'Contact', path: '/contact' },
-] as const;
+import { NAVIGATION_ITEMS, SITE_CONFIG } from '@/utils/constants';
 
 function Navigation() {
   const router = useRouter();
@@ -107,8 +99,8 @@ function Navigation() {
             className="hover:scale-105"
           >
             <Image
-              src="/logo.png"
-              alt="Humane Sleep Project Logo"
+              src={SITE_CONFIG.logo}
+              alt={`${SITE_CONFIG.name} Logo`}
               width={48}
               height={48}
               priority
@@ -128,7 +120,7 @@ function Navigation() {
                 letterSpacing: '0.5px',
               }}
             >
-              Humane Sleep Project
+              {SITE_CONFIG.name}
             </Typography>
           </Link>
         </Box>
