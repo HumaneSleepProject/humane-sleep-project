@@ -78,10 +78,11 @@ function Navigation() {
     <AppBar 
       position="fixed" 
       sx={{ 
-        background: `linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%)`,
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        backdropFilter: 'blur(8px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
         zIndex: 1200,
-        boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-        backdropFilter: 'blur(10px)',
+        boxShadow: 'none',
       }}
     >
       <Toolbar sx={{ 
