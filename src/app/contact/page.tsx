@@ -38,7 +38,7 @@ export default function ContactPage() {
           variant="h2" 
           component="h1" 
           sx={{
-            color: 'var(--primary-purple)',
+            color: 'white',
             fontWeight: 700,
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             position: 'relative',
@@ -51,18 +51,15 @@ export default function ContactPage() {
               transform: 'translateX(-50%)',
               width: '80px',
               height: '4px',
-              backgroundColor: 'var(--primary-purple)',
+              backgroundColor: 'white',
               borderRadius: '2px',
             }
           }}
         >
           Contact Us
         </Typography>
-        <Typography variant="h6" sx={{ mt: 4, mb: 2, color: 'text.secondary' }}>
+        <Typography variant="h6" sx={{ mt: 4, mb: 2, color: 'rgba(255, 255, 255, 0.9)' }}>
           Have a question or want to get involved? We&apos;d love to hear from you.
-        </Typography>
-        <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4 }}>
-          Fill out the form below and we&apos;ll get back to you as soon as possible.
         </Typography>
       </Box>
 
@@ -70,17 +67,34 @@ export default function ContactPage() {
         component="form"
         onSubmit={handleSubmit}
         sx={{
-          backgroundColor: 'white',
+          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          backdropFilter: 'blur(8px)',
           borderRadius: 2,
+          border: '1px solid rgba(255, 255, 255, 0.1)',
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
           p: { xs: 3, sm: 6 },
           '& .MuiTextField-root': {
             mb: 3,
+            '& .MuiInputLabel-root': {
+              color: 'rgba(255, 255, 255, 0.7)',
+            },
+            '& .MuiOutlinedInput-root': {
+              color: 'white',
+              '& fieldset': {
+                borderColor: 'rgba(255, 255, 255, 0.2)',
+              },
+              '&:hover fieldset': {
+                borderColor: 'rgba(255, 255, 255, 0.3)',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: 'rgba(255, 255, 255, 0.5)',
+              },
+            },
           },
         }}
       >
         <Box sx={{ mb: 4 }}>
-          <Typography variant="h6" sx={{ mb: 2, color: 'var(--primary-purple)' }}>
+          <Typography variant="h6" sx={{ mb: 2, color: 'white' }}>
             Your Information
           </Typography>
           <TextField
@@ -101,7 +115,7 @@ export default function ContactPage() {
         </Box>
 
         <Box sx={{ mb: 4 }}>
-          <Typography variant="h6" sx={{ mb: 2, color: 'var(--primary-purple)' }}>
+          <Typography variant="h6" sx={{ mb: 2, color: 'white' }}>
             Your Message
           </Typography>
           <TextField
@@ -127,9 +141,10 @@ export default function ContactPage() {
           size="large"
           fullWidth
           sx={{
-            backgroundColor: 'var(--primary-purple)',
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            color: 'white',
             '&:hover': {
-              backgroundColor: 'var(--secondary-purple)',
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
             },
             py: 1.5,
             fontSize: '1.1rem',
@@ -147,7 +162,15 @@ export default function ContactPage() {
         <Alert 
           onClose={() => setSubmitted(false)} 
           severity="success"
-          sx={{ width: '100%' }}
+          sx={{ 
+            width: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+            backdropFilter: 'blur(8px)',
+            color: 'white',
+            '& .MuiAlert-icon': {
+              color: 'white',
+            },
+          }}
         >
           Thank you for your message! We&apos;ll get back to you soon.
         </Alert>
@@ -161,7 +184,15 @@ export default function ContactPage() {
         <Alert 
           onClose={() => setError('')} 
           severity="error"
-          sx={{ width: '100%' }}
+          sx={{ 
+            width: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+            backdropFilter: 'blur(8px)',
+            color: 'white',
+            '& .MuiAlert-icon': {
+              color: 'white',
+            },
+          }}
         >
           {error}
         </Alert>

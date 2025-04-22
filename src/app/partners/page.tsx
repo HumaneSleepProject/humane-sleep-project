@@ -34,7 +34,7 @@ export default function PartnersPage() {
           variant="h2" 
           component="h1" 
           sx={{
-            color: 'var(--primary-purple)',
+            color: 'white',
             fontWeight: 700,
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             position: 'relative',
@@ -47,7 +47,7 @@ export default function PartnersPage() {
               transform: 'translateX(-50%)',
               width: '80px',
               height: '4px',
-              backgroundColor: 'var(--primary-purple)',
+              backgroundColor: 'white',
               borderRadius: '2px',
             }
           }}
@@ -77,6 +77,12 @@ export default function PartnersPage() {
                 mb: 2,
                 border: '2px solid',
                 borderColor: 'var(--primary-purple)',
+                transition: 'all 0.3s ease-in-out',
+                '&:hover': {
+                  borderColor: 'var(--secondary-purple)',
+                  transform: 'scale(1.05)',
+                  boxShadow: '0 0 20px rgba(128, 0, 128, 0.3)'
+                }
               }}
             >
               <Image
@@ -92,7 +98,7 @@ export default function PartnersPage() {
               variant="h6" 
               component="h3" 
               sx={{ 
-                color: 'var(--primary-purple)',
+                color: 'white',
                 fontWeight: 600,
                 fontSize: '1.1rem',
                 minHeight: '2.5em',
@@ -115,7 +121,7 @@ export default function PartnersPage() {
           variant="h2" 
           component="h2" 
           sx={{
-            color: 'var(--primary-purple)',
+            color: 'white',
             fontWeight: 700,
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             position: 'relative',
@@ -128,7 +134,7 @@ export default function PartnersPage() {
               transform: 'translateX(-50%)',
               width: '80px',
               height: '4px',
-              backgroundColor: 'var(--primary-purple)',
+              backgroundColor: 'white',
               borderRadius: '2px',
             }
           }}
@@ -169,7 +175,7 @@ export default function PartnersPage() {
               variant="subtitle1" 
               component="h3"
               sx={{ 
-                color: 'var(--primary-purple)',
+                color: 'white',
                 fontWeight: 500,
                 fontSize: '1rem',
                 minHeight: '2.5em',
