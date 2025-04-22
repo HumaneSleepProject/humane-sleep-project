@@ -1,20 +1,22 @@
 import { RESOURCE_MAP_URL } from '@/utils/constants';
+import { pageStyles } from '@/styles/pages/information/styles';
+import { Box, Typography } from '@mui/material';
 
 export default function Information() {
   return (
-    <main className="min-h-screen">
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold text-white mb-8">
+    <Box component="main" sx={pageStyles.container}>
+      <Box component="section" sx={pageStyles.section}>
+        <Box sx={{ maxWidth: '7xl', mx: 'auto' }}>
+          <Typography variant="h1" sx={pageStyles.title}>
             Information & Resources
-          </h1>
+          </Typography>
           
           {/* Map Section */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-semibold text-white mb-4">
+          <Box sx={pageStyles.mapContainer}>
+            <Typography variant="h2" sx={pageStyles.mapTitle}>
               Resource Map
-            </h2>
-            <div className="w-full h-[500px] rounded-lg overflow-hidden shadow-lg">
+            </Typography>
+            <Box sx={pageStyles.mapWrapper}>
               <iframe
                 src={RESOURCE_MAP_URL}
                 width="100%"
@@ -24,41 +26,41 @@ export default function Information() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-            </div>
-          </div>
+            </Box>
+          </Box>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Box sx={pageStyles.cardsGrid}>
             {/* Information cards will go here */}
-            <div className="bg-black/20 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-              <h3 className="text-xl font-semibold text-white mb-4">
+            <Box sx={pageStyles.card}>
+              <Typography variant="h3" sx={pageStyles.cardTitle}>
                 Sleep Health Basics
-              </h3>
-              <p className="text-white/80 mb-4">
+              </Typography>
+              <Typography sx={pageStyles.cardText}>
                 Essential information about sleep health and hygiene.
-              </p>
-              <ul className="list-disc list-inside text-white/80">
+              </Typography>
+              <Box component="ul" sx={pageStyles.list}>
                 <li>Sleep duration recommendations</li>
                 <li>Sleep hygiene tips</li>
                 <li>Common sleep disorders</li>
-              </ul>
-            </div>
-            <div className="bg-black/20 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-              <h3 className="text-xl font-semibold text-white mb-4">
+              </Box>
+            </Box>
+            <Box sx={pageStyles.card}>
+              <Typography variant="h3" sx={pageStyles.cardTitle}>
                 Research & Studies
-              </h3>
-              <p className="text-white/80 mb-4">
+              </Typography>
+              <Typography sx={pageStyles.cardText}>
                 Latest research findings and studies about sleep.
-              </p>
-              <ul className="list-disc list-inside text-white/80">
+              </Typography>
+              <Box component="ul" sx={pageStyles.list}>
                 <li>Recent sleep research</li>
                 <li>Scientific publications</li>
                 <li>Case studies</li>
-              </ul>
-            </div>
+              </Box>
+            </Box>
             {/* Add more information cards as needed */}
-          </div>
-        </div>
-      </section>
-    </main>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   )
 } 

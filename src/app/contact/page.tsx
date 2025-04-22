@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Container, Typography, Box, TextField, Button, Alert, Snackbar } from '@mui/material';
+import { CONTACT_CONFIG } from '@/utils/constants';
+import { pageStyles } from '@/styles/pages/contact/styles';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -12,7 +14,7 @@ export default function ContactPage() {
     const formData = new FormData(event.currentTarget);
 
     try {
-      const response = await fetch('https://formspree.io/f/mldjknno', {
+      const response = await fetch(CONTACT_CONFIG.formEndpoint, {
         method: 'POST',
         body: formData,
         headers: {
@@ -24,41 +26,24 @@ export default function ContactPage() {
         setSubmitted(true);
         (event.target as HTMLFormElement).reset();
       } else {
-        setError('There was a problem sending your message. Please try again.');
+        setError(CONTACT_CONFIG.messages.error);
       }
     } catch {
-      setError('There was a problem sending your message. Please try again.');
+      setError(CONTACT_CONFIG.messages.error);
     }
   };
 
   return (
-    <Container maxWidth="sm" sx={{ py: 8 }}>
+    <Container maxWidth="sm" sx={pageStyles.container}>
       <Box sx={{ textAlign: 'center', mb: 6 }}>
         <Typography 
           variant="h2" 
           component="h1" 
-          sx={{
-            color: 'white',
-            fontWeight: 700,
-            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-            position: 'relative',
-            display: 'inline-block',
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              bottom: '-10px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '80px',
-              height: '4px',
-              backgroundColor: 'white',
-              borderRadius: '2px',
-            }
-          }}
+          sx={pageStyles.title}
         >
           Contact Us
         </Typography>
-        <Typography variant="h6" sx={{ mt: 4, mb: 2, color: 'rgba(255, 255, 255, 0.9)' }}>
+        <Typography variant="h6" sx={pageStyles.subtitle}>
           Have a question or want to get involved? We&apos;d love to hear from you.
         </Typography>
       </Box>
@@ -66,71 +51,46 @@ export default function ContactPage() {
       <Box
         component="form"
         onSubmit={handleSubmit}
-        sx={{
-          backgroundColor: 'rgba(0, 0, 0, 0.2)',
-          backdropFilter: 'blur(8px)',
-          borderRadius: 2,
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          p: { xs: 3, sm: 6 },
-          '& .MuiTextField-root': {
-            mb: 3,
-            '& .MuiInputLabel-root': {
-              color: 'rgba(255, 255, 255, 0.7)',
-            },
-            '& .MuiOutlinedInput-root': {
-              color: 'white',
-              '& fieldset': {
-                borderColor: 'rgba(255, 255, 255, 0.2)',
-              },
-              '&:hover fieldset': {
-                borderColor: 'rgba(255, 255, 255, 0.3)',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: 'rgba(255, 255, 255, 0.5)',
-              },
-            },
-          },
-        }}
+        sx={pageStyles.form}
       >
         <Box sx={{ mb: 4 }}>
-          <Typography variant="h6" sx={{ mb: 2, color: 'white' }}>
+          <Typography variant="h6" sx={pageStyles.sectionTitle}>
             Your Information
           </Typography>
           <TextField
             required
             fullWidth
-            label="Full Name"
+            label={CONTACT_CONFIG.fields.name.label}
             name="name"
-            autoComplete="name"
+            autoComplete={CONTACT_CONFIG.fields.name.autoComplete}
           />
           <TextField
             required
             fullWidth
-            label="Email Address"
+            label={CONTACT_CONFIG.fields.email.label}
             name="email"
-            type="email"
-            autoComplete="email"
+            type={CONTACT_CONFIG.fields.email.type}
+            autoComplete={CONTACT_CONFIG.fields.email.autoComplete}
           />
         </Box>
 
         <Box sx={{ mb: 4 }}>
-          <Typography variant="h6" sx={{ mb: 2, color: 'white' }}>
+          <Typography variant="h6" sx={pageStyles.sectionTitle}>
             Your Message
           </Typography>
           <TextField
             required
             fullWidth
-            label="Subject"
+            label={CONTACT_CONFIG.fields.subject.label}
             name="subject"
           />
           <TextField
             required
             fullWidth
-            label="Message"
+            label={CONTACT_CONFIG.fields.message.label}
             name="message"
-            multiline
-            rows={6}
+            multiline={CONTACT_CONFIG.fields.message.multiline}
+            rows={CONTACT_CONFIG.fields.message.rows}
             sx={{ mb: 4 }}
           />
         </Box>
@@ -140,15 +100,7 @@ export default function ContactPage() {
           variant="contained"
           size="large"
           fullWidth
-          sx={{
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            color: 'white',
-            '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            },
-            py: 1.5,
-            fontSize: '1.1rem',
-          }}
+          sx={pageStyles.submitButton}
         >
           Send Message
         </Button>
@@ -162,17 +114,9 @@ export default function ContactPage() {
         <Alert 
           onClose={() => setSubmitted(false)} 
           severity="success"
-          sx={{ 
-            width: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.2)',
-            backdropFilter: 'blur(8px)',
-            color: 'white',
-            '& .MuiAlert-icon': {
-              color: 'white',
-            },
-          }}
+          sx={pageStyles.alert}
         >
-          Thank you for your message! We&apos;ll get back to you soon.
+          {CONTACT_CONFIG.messages.success}
         </Alert>
       </Snackbar>
 
@@ -184,15 +128,7 @@ export default function ContactPage() {
         <Alert 
           onClose={() => setError('')} 
           severity="error"
-          sx={{ 
-            width: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.2)',
-            backdropFilter: 'blur(8px)',
-            color: 'white',
-            '& .MuiAlert-icon': {
-              color: 'white',
-            },
-          }}
+          sx={pageStyles.alert}
         >
           {error}
         </Alert>

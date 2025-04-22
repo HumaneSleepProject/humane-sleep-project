@@ -35,12 +35,21 @@ src/
 │   ├── events/            # Events page
 │   └── partners/          # Partners page
 ├── components/            # Shared components
-│   ├── Navigation.tsx     # Navigation component
-│   ├── Footer.tsx         # Footer component
-│   ├── ImageMasonry.tsx   # Image gallery component
-│   └── Stars.tsx          # Background stars component
-├── assets/               # Static assets
-└── theme.ts             # Theme configuration
+│   ├── common/           # Common UI components
+│   │   └── ImageMasonry/  # Image gallery component
+│   ├── layout/            # Layout components
+│   │   ├── Navigation/    # Navigation component
+│   │   ├── Footer/        # Footer component
+│   │   └── Stars/         # Background stars component
+├── styles/                # Styling
+│   ├── theme/             # MUI theme configuration
+│   │   ├── index.ts       # Theme entry point
+│   │   ├── palette.ts     # Color palette
+│   │   └── typography.ts  # Typography settings
+│   └── shared/            # Shared styles
+├── utils/                 # Utility functions
+│   ├── constants.ts      # Application constants
+
 ```
 
 ## 🚀 Getting Started
@@ -122,11 +131,10 @@ The website is fully responsive and optimized for:
 
 ## 🎨 Theme Customization
 
-The theme can be customized by modifying the `src/theme.ts` file. The current theme includes:
-- Dark mode with starry background
-- Glassy UI elements
-- Custom color palette
-- Responsive typography
+The theme can be customized by modifying the files in `src/styles/theme/`:
+- `index.ts`: Main theme configuration
+- `palette.ts`: Color palette settings
+- `typography.ts`: Typography settings
 
 ## 🔍 SEO Optimization
 

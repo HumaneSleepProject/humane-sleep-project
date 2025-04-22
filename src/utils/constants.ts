@@ -131,4 +131,32 @@ export const TEAM_MEMBERS = [
 ];
 
 // Resource map URL
-export const RESOURCE_MAP_URL = "https://www.google.com/maps/d/embed?mid=13vmK1r7q7i_r85lGnPHhLw5DK7YPDzc&ehbc=2E312F"; 
+export const RESOURCE_MAP_URL = "https://www.google.com/maps/d/embed?mid=13vmK1r7q7i_r85lGnPHhLw5DK7YPDzc&ehbc=2E312F";
+
+// Contact form configuration
+export const CONTACT_CONFIG = {
+  formEndpoint: 'https://formspree.io/f/mldjknno',
+  messages: {
+    success: 'Thank you for your message! We\'ll get back to you soon.',
+    error: 'There was a problem sending your message. Please try again.'
+  },
+  fields: {
+    name: {
+      label: 'Full Name',
+      autoComplete: 'name'
+    },
+    email: {
+      label: 'Email Address',
+      type: 'email',
+      autoComplete: 'email'
+    },
+    subject: {
+      label: 'Subject'
+    },
+    message: {
+      label: 'Message',
+      multiline: true,
+      rows: 6
+    }
+  }
+} as const; 
