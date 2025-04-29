@@ -47,4 +47,29 @@ export async function getEvents(): Promise<Event[]> {
     console.error('Error fetching events:', error);
     return events;
   }
+}
+
+export function getStaticEvents(): Event[] {
+  return [
+    {
+      id: '1',
+      title: 'Sleep Science Workshop',
+      date: '2024-04-15T10:00:00',
+      description: 'Join us for an in-depth workshop on the latest sleep science research and practical techniques for better sleep.',
+      location: 'Virtual Event',
+      imageUrl: '/images/events/sleep-workshop.jpg',
+      registrationUrl: 'https://example.com/register/sleep-workshop',
+      isActive: true
+    },
+    {
+      id: '2',
+      title: 'Meditation & Sleep Retreat',
+      date: '2024-05-20T09:00:00',
+      description: 'A weekend retreat focusing on meditation techniques that promote better sleep and overall well-being.',
+      location: 'Mountain View Resort',
+      imageUrl: '/images/events/meditation-retreat.jpg',
+      registrationUrl: 'https://example.com/register/meditation-retreat',
+      isActive: true
+    }
+  ];
 } 
