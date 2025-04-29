@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
 
 export interface Event {
@@ -13,26 +11,42 @@ export interface Event {
   isActive: boolean;
 }
 
+// This function will be called at build time
 export async function getEvents(): Promise<Event[]> {
-  const eventsDirectory = path.join(process.cwd(), 'content/events');
-  const filenames = fs.readdirSync(eventsDirectory);
+  // In development, we'll use sample data
+  if (process.env.NODE_ENV === 'development') {
+    return [
+      {
+        id: '1',
+        title: 'Sleep Science Workshop',
+        date: '2024-04-15T10:00:00',
+        description: 'Join us for an in-depth workshop on the latest sleep science research and practical techniques for better sleep.',
+        location: 'Virtual Event',
+        imageUrl: '/images/events/sleep-workshop.jpg',
+        registrationUrl: 'https://example.com/register/sleep-workshop',
+        isActive: true
+      },
+      {
+        id: '2',
+        title: 'Meditation & Sleep Retreat',
+        date: '2024-05-20T09:00:00',
+        description: 'A weekend retreat focusing on meditation techniques that promote better sleep and overall well-being.',
+        location: 'Mountain View Resort',
+        imageUrl: '/images/events/meditation-retreat.jpg',
+        registrationUrl: 'https://example.com/register/meditation-retreat',
+        isActive: true
+      }
+    ];
+  }
 
-  const events = filenames.map((filename) => {
-    const filePath = path.join(eventsDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data, content } = matter(fileContents);
-
-    return {
-      id: filename.replace(/\.md$/, ''),
-      title: data.title,
-      date: data.date,
-      description: content,
-      location: data.location,
-      imageUrl: data.image,
-      registrationUrl: data.registrationUrl,
-      isActive: data.isActive ?? true,
-    };
-  });
-
-  return events.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  // In production, we'll use the static data
+  const events: Event[] = [];
+  try {
+    const response = await fetch('/api/events');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching events:', error);
+    return events;
+  }
 } 

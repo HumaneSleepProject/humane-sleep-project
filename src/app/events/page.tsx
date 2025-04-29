@@ -1,12 +1,36 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Container, Typography, Grid, Card, CardContent, CardMedia, Button, Chip } from '@mui/material';
-import { getEvents } from '@/utils/events';
+import { Event, getEvents } from '@/utils/events';
 import { pageStyles } from '@/styles/pages/events/styles';
 
-export default async function Events() {
-  const events = await getEvents();
+export default function Events() {
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadEvents = async () => {
+      try {
+        const data = await getEvents();
+        setEvents(data);
+      } catch (error) {
+        console.error('Error loading events:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadEvents();
+  }, []);
+
+  if (loading) {
+    return (
+      <Container maxWidth="lg" sx={pageStyles.container}>
+        <Typography>Loading events...</Typography>
+      </Container>
+    );
+  }
 
   return (
     <Container maxWidth="lg" sx={pageStyles.container}>
