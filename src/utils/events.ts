@@ -1,5 +1,3 @@
-import matter from 'gray-matter';
-
 export interface Event {
   id: string;
   title: string;
