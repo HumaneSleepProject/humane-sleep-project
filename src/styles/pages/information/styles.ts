@@ -7,26 +7,48 @@ export const pageStyles = {
     px: 4
   },
   title: {
-    fontSize: '2rem',
-    fontWeight: 'bold',
     color: 'white',
-    mb: 8
+    fontWeight: 700,
+    fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+    position: 'relative',
+    display: 'inline-block',
+    textAlign: 'center',
+    width: '100%',
+    mb: 8,
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      bottom: '-10px',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      width: '80px',
+      height: '4px',
+      backgroundColor: 'white',
+      borderRadius: '2px',
+    }
   },
   mapContainer: {
-    mb: 12
+    mb: 12,
+    maxWidth: '1000px',
+    mx: 'auto',
+    width: '100%'
   },
   mapTitle: {
     fontSize: '1.5rem',
     fontWeight: 600,
     color: 'white',
-    mb: 4
+    mb: 4,
+    textAlign: 'left'
   },
   mapWrapper: {
     width: '100%',
     height: '500px',
     borderRadius: '0.5rem',
     overflow: 'hidden',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    backdropFilter: 'blur(8px)',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)'
   },
   cardsGrid: {
     display: 'grid',
