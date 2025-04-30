@@ -5,12 +5,13 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# 1) Serve config.yml as-is
 [[redirects]]
-  from = "/admin"
-  to = "/admin/index.html"
+  from = "/admin/config.yml"
+  to = "/admin/config.yml"
   status = 200
-  force = true
 
+# 2) Then the SPA shell for everything else under /admin
 [[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
