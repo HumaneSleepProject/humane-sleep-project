@@ -2,31 +2,33 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/admin/" />
     <title>Content Manager</title>
-    <!-- Netlify Identity widget -->
+
+    <!-- 1) Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  </head>
-  <body>
-    <!-- Include the Netlify Identity Widget -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script>
-      // Initialize Netlify Identity with invite-only
+      // Initialize Identity *first*
       if (window.netlifyIdentity) {
+        window.netlifyIdentity.init({ open: false, allowSignup: false });
         window.netlifyIdentity.on("init", user => {
           if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
+            // Immediately pop open the login modal
+            window.netlifyIdentity.open();
           }
-        });
-        // Set invite-only mode
-        window.netlifyIdentity.init({
-          allowExternalRedirect: true,
-          allowSignup: false
         });
       }
     </script>
+
+    <!-- (optional) include CMS styles -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.css"
+    />
+  </head>
+
+  <body>
+    <!-- 2) Then load the full CMS app -->
+    <script src="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.js"></script>
   </body>
 </html>
