@@ -1,25 +1,26 @@
 [build]
-  command = "npm run build"
+  # now runs `next build` **and** `next export`
+  command = "npm run build && npm run export"
   publish = "out"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+# Remove the @netlify/plugin-nextjs plugin block entirely 
+# (we’re doing a full static export instead)
 
-# 1) Always redirect /admin to /admin/
+# 1) Redirect /admin → /admin/ (trailing slash)
 [[redirects]]
-  from = "/admin"
-  to = "/admin/"
+  from   = "/admin"
+  to     = "/admin/"
   status = 301
 
-# 2) Serve config.yml as-is
+# 2) Serve the real config.yml
 [[redirects]]
-  from = "/admin/config.yml"
-  to = "/admin/config.yml"
+  from   = "/admin/config.yml"
+  to     = "/admin/config.yml"
   status = 200
 
-# 3) Then the SPA shell for everything else under /admin
+# 3) Everything else under /admin is your SPA
 [[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
+  from   = "/admin/*"
+  to     = "/admin/index.html"
   status = 200
-  force = true 
+  force  = true
