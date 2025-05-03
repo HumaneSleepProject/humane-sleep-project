@@ -8,27 +8,24 @@
     <!-- 1) Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      // Initialize Identity *first*
+      // Initialize Identity first and pop open the login modal
       if (window.netlifyIdentity) {
         window.netlifyIdentity.init({ open: false, allowSignup: false });
         window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            // Immediately pop open the login modal
-            window.netlifyIdentity.open();
-          }
+          if (!user) window.netlifyIdentity.open();
         });
       }
     </script>
 
-    <!-- (optional) include CMS styles -->
+    <!-- 2) Netlify CMS styles -->
     <link
       rel="stylesheet"
-      href="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.css"
+      href="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.css"
     />
   </head>
 
   <body>
-    <!-- 2) Then load the full CMS app -->
-    <script src="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.js"></script>
+    <!-- 3) Official Netlify CMS bundle -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   </body>
 </html>
