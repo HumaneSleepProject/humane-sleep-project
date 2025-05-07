@@ -22,9 +22,10 @@ export async function POST(request: Request) {
       if ('sha' in file) {
         fileSha = file.sha;
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       // File doesn't exist yet, that's okay
-      console.log('File does not exist yet, will create it:', error.message);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.log('File does not exist yet, will create it:', errorMessage);
     }
 
     // Update or create the file
