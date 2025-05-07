@@ -1,15 +1,4 @@
 {
-  "upcoming": [
-    {
-      "title": "fdsfsdfsfsdfsdfsds",
-      "date": "",
-      "time": "",
-      "location": "",
-      "description": "",
-      "imageUrl": "",
-      "registrationUrl": "",
-      "id": "1746579184228"
-    }
-  ],
+  "upcoming": [],
   "past": []
 }
