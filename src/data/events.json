@@ -1,4 +1,15 @@
 {
-  "upcoming": [],
+  "upcoming": [
+    {
+      "title": "Upcoming test",
+      "date": "",
+      "time": "",
+      "location": "",
+      "description": "",
+      "imageUrl": "",
+      "registrationUrl": "",
+      "id": "1746579197178"
+    }
+  ],
   "past": []
 }
