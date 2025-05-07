@@ -1,26 +1,15 @@
 {
   "upcoming": [
     {
-      "title": "Upcoming test",
-      "date": "",
-      "time": "",
-      "location": "",
-      "description": "",
+      "title": "test event",
+      "date": "2001-09-08",
+      "time": "123",
+      "location": "123",
+      "description": "3123",
       "imageUrl": "",
       "registrationUrl": "",
-      "id": "1746579197178"
+      "id": "1746579238857"
     }
   ],
-  "past": [
-    {
-      "title": "past test",
-      "date": "",
-      "time": "",
-      "location": "",
-      "description": "",
-      "imageUrl": "",
-      "registrationUrl": "",
-      "id": "1746579203687"
-    }
-  ]
+  "past": []
 }
