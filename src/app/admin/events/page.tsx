@@ -14,7 +14,6 @@ import {
   IconButton,
   Card,
   CardContent,
-  CardMedia,
   useTheme,
   useMediaQuery,
   Tabs,
@@ -24,6 +23,8 @@ import { Delete as DeleteIcon, Edit as EditIcon, Add as AddIcon } from '@mui/ico
 import { motion } from 'framer-motion';
 import { Event, EventsData } from '@/utils/events';
 import eventsData from '@/data/events.json';
+import EventDialog from '@/components/events/EventDialog';
+import Image from 'next/image';
 
 export default function EventsAdmin() {
   const [events, setEvents] = useState<EventsData>(eventsData);
@@ -41,6 +42,7 @@ export default function EventsAdmin() {
     imageUrl: '',
     registrationUrl: ''
   });
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setCurrentTab(newValue);
@@ -189,15 +191,20 @@ export default function EventsAdmin() {
           borderRadius: '16px',
           overflow: 'hidden',
           transition: 'transform 0.3s ease-in-out',
+          cursor: 'pointer',
           '&:hover': {
             transform: 'translateY(-8px)',
             boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)'
           }
         }}
+        onClick={() => setSelectedEvent(event)}
       >
         <Box sx={{ position: 'absolute', top: 8, right: 8, zIndex: 1, display: 'flex', gap: 1 }}>
           <IconButton 
-            onClick={() => handleOpen(event)}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleOpen(event);
+            }}
             sx={{ 
               background: 'rgba(255, 255, 255, 0.2)',
               backdropFilter: 'blur(4px)',
@@ -207,7 +214,10 @@ export default function EventsAdmin() {
             <EditIcon sx={{ color: 'white' }} />
           </IconButton>
           <IconButton 
-            onClick={() => handleDelete(event.id)}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDelete(event.id);
+            }}
             sx={{ 
               background: 'rgba(255, 255, 255, 0.2)',
               backdropFilter: 'blur(4px)',
@@ -217,16 +227,22 @@ export default function EventsAdmin() {
             <DeleteIcon sx={{ color: 'white' }} />
           </IconButton>
         </Box>
-        <CardMedia
-          component="img"
-          height="200"
-          image={event.imageUrl}
-          alt={event.title}
-          sx={{
-            objectFit: 'cover',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
-          }}
-        />
+        <Box sx={{ 
+          position: 'relative',
+          width: '100%',
+          paddingTop: '56.25%', // 16:9 aspect ratio
+          overflow: 'hidden'
+        }}>
+          <Image
+            src={event.imageUrl}
+            alt={event.title}
+            fill
+            sizes="(max-width: 768px) 280px, 320px"
+            style={{
+              objectFit: 'cover',
+            }}
+          />
+        </Box>
         <CardContent sx={{ 
           flexGrow: 1,
           display: 'flex',
@@ -278,7 +294,12 @@ export default function EventsAdmin() {
             sx={{ 
               color: 'rgba(255, 255, 255, 0.7)',
               mt: 1,
-              flexGrow: 1
+              flexGrow: 1,
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
             }}
           >
             {event.description}
@@ -290,6 +311,7 @@ export default function EventsAdmin() {
                 href={event.registrationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 sx={{
                   background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
                   color: 'white',
@@ -614,6 +636,14 @@ export default function EventsAdmin() {
           </Button>
         </DialogActions>
       </Dialog>
+
+      {selectedEvent && (
+        <EventDialog
+          event={selectedEvent}
+          open={!!selectedEvent}
+          onClose={() => setSelectedEvent(null)}
+        />
+      )}
     </Container>
   );
 } 

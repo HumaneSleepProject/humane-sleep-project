@@ -1,24 +1,34 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Container, 
   Typography, 
-  Card, 
-  CardContent, 
-  CardMedia, 
+  Box, 
   Button, 
-  Box,
+  Card,
+  CardContent,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  Tabs,
+  Tab
 } from '@mui/material';
-import { getStaticEvents, Event } from '@/utils/events';
 import { motion } from 'framer-motion';
+import { Event, EventsData } from '@/utils/events';
+import eventsData from '@/data/events.json';
+import EventDialog from '@/components/events/EventDialog';
+import Image from 'next/image';
 
 export default function Events() {
-  const events = getStaticEvents();
+  const [events] = useState<EventsData>(eventsData);
+  const [currentTab, setCurrentTab] = useState(0);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    setCurrentTab(newValue);
+  };
 
   const EventCard = ({ event }: { event: Event }) => (
     <motion.div
@@ -28,7 +38,8 @@ export default function Events() {
       style={{ 
         minWidth: isMobile ? '280px' : '320px',
         margin: '0 16px',
-        flex: '0 0 auto'
+        flex: '0 0 auto',
+        position: 'relative'
       }}
     >
       <Card 
@@ -42,22 +53,30 @@ export default function Events() {
           borderRadius: '16px',
           overflow: 'hidden',
           transition: 'transform 0.3s ease-in-out',
+          cursor: 'pointer',
           '&:hover': {
             transform: 'translateY(-8px)',
             boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)'
           }
         }}
+        onClick={() => setSelectedEvent(event)}
       >
-        <CardMedia
-          component="img"
-          height="200"
-          image={event.imageUrl}
-          alt={event.title}
-          sx={{
-            objectFit: 'cover',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
-          }}
-        />
+        <Box sx={{ 
+          position: 'relative',
+          width: '100%',
+          paddingTop: '56.25%', // 16:9 aspect ratio
+          overflow: 'hidden'
+        }}>
+          <Image
+            src={event.imageUrl}
+            alt={event.title}
+            fill
+            sizes="(max-width: 768px) 280px, 320px"
+            style={{
+              objectFit: 'cover',
+            }}
+          />
+        </Box>
         <CardContent sx={{ 
           flexGrow: 1,
           display: 'flex',
@@ -109,7 +128,12 @@ export default function Events() {
             sx={{ 
               color: 'rgba(255, 255, 255, 0.7)',
               mt: 1,
-              flexGrow: 1
+              flexGrow: 1,
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
             }}
           >
             {event.description}
@@ -121,6 +145,7 @@ export default function Events() {
                 href={event.registrationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 sx={{
                   background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
                   color: 'white',
@@ -139,48 +164,6 @@ export default function Events() {
         </CardContent>
       </Card>
     </motion.div>
-  );
-
-  const EventSection = ({ title, events }: { title: string; events: Event[] }) => (
-    <Box sx={{ mb: 6 }}>
-      <Typography 
-        variant="h4" 
-        component="h2" 
-        sx={{ 
-          mb: 3,
-          color: 'white',
-          fontWeight: 600,
-          fontSize: { xs: '1.75rem', md: '2.25rem' }
-        }}
-      >
-        {title}
-      </Typography>
-      <Box sx={{ 
-        display: 'flex',
-        overflowX: 'auto',
-        gap: 2,
-        pb: 2,
-        px: 1,
-        '&::-webkit-scrollbar': {
-          height: '8px',
-        },
-        '&::-webkit-scrollbar-track': {
-          background: 'rgba(255, 255, 255, 0.1)',
-          borderRadius: '4px',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          background: 'rgba(255, 255, 255, 0.2)',
-          borderRadius: '4px',
-          '&:hover': {
-            background: 'rgba(255, 255, 255, 0.3)',
-          },
-        },
-      }}>
-        {events.map((event) => (
-          <EventCard key={event.id} event={event} />
-        ))}
-      </Box>
-    </Box>
   );
 
   return (
@@ -202,8 +185,64 @@ export default function Events() {
         Events
       </Typography>
 
-      <EventSection title="Upcoming Events" events={events.filter(e => new Date(e.date) >= new Date())} />
-      <EventSection title="Past Events" events={events.filter(e => new Date(e.date) < new Date())} />
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        mb: 4 
+      }}>
+        <Tabs 
+          value={currentTab} 
+          onChange={handleTabChange}
+          sx={{
+            '& .MuiTab-root': {
+              color: 'rgba(255, 255, 255, 0.7)',
+              '&.Mui-selected': {
+                color: 'white',
+              },
+            },
+            '& .MuiTabs-indicator': {
+              backgroundColor: 'white',
+            },
+          }}
+        >
+          <Tab label="Upcoming Events" />
+          <Tab label="Past Events" />
+        </Tabs>
+      </Box>
+
+      <Box sx={{ 
+        display: 'flex',
+        overflowX: 'auto',
+        gap: 2,
+        pb: 2,
+        px: 1,
+        '&::-webkit-scrollbar': {
+          height: '8px',
+        },
+        '&::-webkit-scrollbar-track': {
+          background: 'rgba(255, 255, 255, 0.1)',
+          borderRadius: '4px',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background: 'rgba(255, 255, 255, 0.2)',
+          borderRadius: '4px',
+          '&:hover': {
+            background: 'rgba(255, 255, 255, 0.3)',
+          },
+        },
+      }}>
+        {(currentTab === 0 ? events.upcoming : events.past).map((event) => (
+          <EventCard key={event.id} event={event} />
+        ))}
+      </Box>
+
+      {selectedEvent && (
+        <EventDialog
+          event={selectedEvent}
+          open={!!selectedEvent}
+          onClose={() => setSelectedEvent(null)}
+        />
+      )}
     </Container>
   );
 } 
