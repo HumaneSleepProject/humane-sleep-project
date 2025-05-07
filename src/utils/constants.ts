@@ -18,25 +18,85 @@ export const SITE_CONFIG = {
 
 // Partners and donors
 export const PARTNERS = [
-  { name: 'Salesforce', logo: '/images/partners/salesforce.png' },
-  { name: 'Movement Lab Chiropractic', logo: '/images/partners/movement_lab.png' },
-  { name: 'Livermore Symphony', logo: '/images/partners/livermore_symphony.jpg' },
-  { name: 'Cornerstone Church', logo: '/images/partners/cornerstone_church.png' },
-  { name: 'Shepherd\'s Gate', logo: '/images/partners/shepherds_gate.jpg' },
-];
+  {
+    name: "Livermore-Amador Symphony",
+    logo: "/images/partners/livermore_symphony.jpg",
+    website: "https://livermoreamadorsymphony.org/"
+  },
+  {
+    name: "Salesforce",
+    logo: "/images/partners/salesforce.png",
+    website: "https://www.salesforce.com/"
+  },
+  {
+    name: "Movement Lab",
+    logo: "/images/partners/movement_lab.png",
+    website: "https://www.movementlabchiro.com/"
+  },
+  {
+    name: "Shepherd's Gate",
+    logo: "/images/partners/shepherds_gate.jpg",
+    website: "https://www.shepherdsgate.org/"
+  },
+  {
+    name: "Cornerstone Church",
+    logo: "/images/partners/cornerstone_church.png",
+    website: "https://cornerstoneweb.org/"
+  }
+] as const;
 
 export const DONORS = [
-  { name: 'Rotary Club of Livermore', logo: '/images/donors/livermore_rotary.jpg' },
-  { name: 'Kannada Koota of Northern California', logo: '/images/donors/kannada_koota_of_northern_california.jpg' },
-  { name: 'Bollywood 92.3', logo: '/images/donors/bollywood_923.jpg' },
-  { name: 'Organizing with Love LLC', logo: '/images/donors/organizing_with_love_llc.png' },
-  { name: 'Del Valle Continuation School', logo: '/images/donors/del_valle_continuation_school.png' },
-  { name: 'Sewa Diwali', logo: '/images/donors/sewa_diwali.jpg' },
-  { name: 'Tri Valley Kannada Sangha', logo: '/images/donors/tri_valley_kannada_sangha.jpg' },
-  { name: 'Tri Valley 30 TV', logo: '/images/donors/tri_valley_30_tv.jpg' },
-  { name: 'Livermore Police Department', logo: '/images/donors/livermore_police.jpg' },
-  { name: 'Goodness Village', logo: '/images/donors/goodness_village.jpg' },
-];
+  {
+    name: "Tri-Valley Kannada Sangha",
+    logo: "/images/donors/tri_valley_kannada_sangha.JPG",
+    website: "https://www.tvksangha.org/"
+  },
+  {
+    name: "Rotary Club of Livermore",
+    logo: "/images/donors/livermore_rotary.jpg",
+    website: "https://www.livermore-rotary.org/"
+  },
+  {
+    name: "Organizing with Love LLC",
+    logo: "/images/donors/organizing_with_love_llc.png",
+    website: "https://organizingwithlove.com/"
+  },
+  {
+    name: "Tri-Valley 30 TV",
+    logo: "/images/donors/tri_valley_30_tv.jpg",
+    website: "https://www.tri-valleytv.org/"
+  },
+  {
+    name: "Bollywood 923",
+    logo: "/images/donors/bollywood_923.jpg",
+    website: "https://bolly923fm.com/"
+  },
+  {
+    name: "Kannada Koota of Northern California",
+    logo: "/images/donors/kannada_koota_of_northern_california.jpg",
+    website: "https://www.kknc.org/"
+  },
+  {
+    name: "Goodness Village",
+    logo: "/images/donors/goodness_village.jpg",
+    website: "https://gvlivermore.org/"
+  },
+  {
+    name: "Livermore Police",
+    logo: "/images/donors/livermore_police.jpg",
+    website: "https://police.livermoreca.gov/home-police"
+  },
+  {
+    name: "Sewa Diwali",
+    logo: "/images/donors/sewa_diwali.jpg",
+    website: "https://sewadiwali.org/"
+  },
+  {
+    name: "Del Valle Continuation School",
+    logo: "/images/donors/del_valle_continuation_school.png",
+    website: "https://delvalle.livermoreschools.org/"
+  }
+] as const;
 
 // Team members
 export const TEAM_MEMBERS = [

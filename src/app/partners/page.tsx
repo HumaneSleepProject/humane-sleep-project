@@ -23,7 +23,27 @@ export default function PartnersPage() {
         {PARTNERS.map((partner, index) => (
           <Box
             key={index}
-            sx={pageStyles.partnerCard}
+            sx={{
+              ...pageStyles.partnerCard,
+              cursor: 'pointer',
+              '&:hover': {
+                transform: 'scale(1.05)',
+                transition: 'transform 0.3s ease-in-out'
+              }
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              if (partner.website) {
+                window.open(partner.website, '_blank', 'noopener,noreferrer');
+              }
+            }}
+            role="link"
+            tabIndex={0}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter' && partner.website) {
+                window.open(partner.website, '_blank', 'noopener,noreferrer');
+              }
+            }}
           >
             <Box
               sx={pageStyles.partnerImage}
@@ -33,7 +53,7 @@ export default function PartnersPage() {
                 alt={`${partner.name} logo`}
                 fill
                 style={{
-                  objectFit: 'cover',
+                  objectFit: 'contain',
                 }}
               />
             </Box>
@@ -63,7 +83,27 @@ export default function PartnersPage() {
         {DONORS.map((donor, index) => (
           <Box
             key={index}
-            sx={pageStyles.donorCard}
+            sx={{
+              ...pageStyles.donorCard,
+              cursor: 'pointer',
+              '&:hover': {
+                transform: 'scale(1.05)',
+                transition: 'transform 0.3s ease-in-out'
+              }
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              if (donor.website) {
+                window.open(donor.website, '_blank', 'noopener,noreferrer');
+              }
+            }}
+            role="link"
+            tabIndex={0}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter' && donor.website) {
+                window.open(donor.website, '_blank', 'noopener,noreferrer');
+              }
+            }}
           >
             <Box
               sx={pageStyles.donorImage}
