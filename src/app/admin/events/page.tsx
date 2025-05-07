@@ -167,7 +167,7 @@ export default function EventsAdmin() {
 
       <Grid container spacing={3}>
         {(currentTab === 0 ? events.upcoming : events.past).map((event) => (
-          <Grid key={event.id} xs={12} md={6}>
+          <Grid key={event.id} sx={{ width: { xs: '100%', md: '50%' } }}>
             <Paper sx={{ p: 2 }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <Typography variant="h6">{event.title}</Typography>
