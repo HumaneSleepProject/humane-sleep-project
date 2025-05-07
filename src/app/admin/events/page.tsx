@@ -79,12 +79,16 @@ export default function EventsAdmin() {
       return;
     }
 
-    // Validate date format
-    const date = new Date(formData.date);
+    // Validate date format and adjust for timezone
+    const [year, month, day] = formData.date.split('-').map(Number);
+    const date = new Date(year, month - 1, day); // month is 0-based in JavaScript
     if (isNaN(date.getTime())) {
       alert('Please enter a valid date');
       return;
     }
+
+    // Format the date back to YYYY-MM-DD to avoid timezone issues
+    const formattedDate = date.toISOString().split('T')[0];
 
     // Validate image URL
     try {
@@ -106,7 +110,8 @@ export default function EventsAdmin() {
 
     const newEvent: Event = {
       ...formData as Event,
-      id: editingEvent?.id || Date.now().toString()
+      id: editingEvent?.id || Date.now().toString(),
+      date: formattedDate // Use the formatted date
     };
 
     const updatedEvents = { ...events };
@@ -271,12 +276,13 @@ export default function EventsAdmin() {
               gap: 1
             }}
           >
-            {new Date(event.date).toLocaleDateString('en-US', {
+            {new Date(event.date + 'T00:00:00').toLocaleDateString('en-US', {
               weekday: 'long',
               year: 'numeric',
               month: 'long',
               day: 'numeric'
             })}
+            {event.time && ` at ${event.time}`}
           </Typography>
           <Typography 
             variant="body2" 
