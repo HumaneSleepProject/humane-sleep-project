@@ -27,7 +27,10 @@ function Navigation() {
   const drawer = (
     <List sx={{ 
       py: 2,
-      background: `linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%)`,
+      background: 'rgba(18, 18, 18, 0.95)',
+      backdropFilter: 'blur(10px)',
+      borderLeft: '1px solid rgba(255, 255, 255, 0.1)',
+      height: '100%',
     }}>
       {NAVIGATION_ITEMS.map((item) => (
         <ListItemButton 
@@ -156,6 +159,10 @@ function Navigation() {
                   width: 280,
                   background: 'transparent',
                   border: 'none',
+                },
+                '& .MuiBackdrop-root': {
+                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                  backdropFilter: 'blur(4px)',
                 },
               }}
             >
