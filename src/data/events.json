@@ -1,15 +1,4 @@
 {
   "upcoming": [],
-  "past": [
-    {
-      "title": "test past event",
-      "date": "2001-09-08",
-      "time": "123",
-      "location": "213",
-      "description": "213123",
-      "imageUrl": "",
-      "registrationUrl": "",
-      "id": "1746579256941"
-    }
-  ]
+  "past": []
 }
