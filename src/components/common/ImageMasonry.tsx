@@ -4,16 +4,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
 import Image from 'next/image';
-
-interface ImageItem {
-  img: string;
-  title: string;
-  width: number;
-  height: number;
-}
+import { GalleryImage } from '@/utils/gallery';
 
 interface ImageMasonryProps {
-  images: ImageItem[];
+  images: GalleryImage[];
 }
 
 export default function ImageMasonry({ images }: ImageMasonryProps) {

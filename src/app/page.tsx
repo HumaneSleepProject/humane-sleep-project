@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import ImageMasonry from "@/components/common/ImageMasonry";
-import { GALLERY_IMAGES, SITE_CONFIG } from "@/utils/constants";
+import { SITE_CONFIG } from "@/utils/constants";
+import { getGalleryImages } from "@/utils/gallery";
 
-export default function Home() {
+export default async function Home() {
+  const galleryImages = await getGalleryImages();
+
   return (
     <main>
       {/* Hero Section */}
@@ -62,7 +65,7 @@ export default function Home() {
       <section className="section-padding">
         <div className="container-responsive text-center">
           <div className="mt-8">
-            <ImageMasonry images={GALLERY_IMAGES} />
+            <ImageMasonry images={galleryImages} />
           </div>
         </div>
       </section>
