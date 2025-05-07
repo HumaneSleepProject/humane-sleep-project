@@ -21,16 +21,6 @@
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg",
       "registrationUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg",
       "id": "1746652504742"
-    },
-    {
-      "title": "test",
-      "date": "2001-09-08",
-      "time": "10:00 AM",
-      "location": "Pleasanton",
-      "description": "mane",
-      "imageUrl": "https://img-getpocket.cdn.mozilla.net/592x296/smart/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2F09c43763-c822-4e00-b787-e6f27c082bc2.jpeg",
-      "registrationUrl": "",
-      "id": "1746653340380"
     }
   ]
 }
