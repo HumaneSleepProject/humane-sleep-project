@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { RESOURCE_MAP_URL } from '@/utils/constants';
 import { pageStyles } from '@/styles/pages/information/styles';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Link } from '@mui/material';
