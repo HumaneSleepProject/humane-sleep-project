@@ -27,6 +27,13 @@ export const pageStyles = {
       borderRadius: '2px',
     }
   },
+  sectionTitle: {
+    fontWeight: 600,
+    fontSize: { xs: '1.25rem', sm: '1.4rem', md: '1.7rem' },
+    color: 'white',
+    mb: 4,
+    textAlign: 'center',
+  },
   mapContainer: {
     mb: 12,
     maxWidth: '1000px',
