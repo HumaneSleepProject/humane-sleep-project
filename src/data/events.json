@@ -1,15 +1,26 @@
 {
-  "upcoming": [],
+  "upcoming": [
+    {
+      "title": "Sewa Diwali 2023",
+      "date": "2023-12-11",
+      "time": "",
+      "location": "San Jose",
+      "description": "Humane Sleep Project is driven by an unwavering sense of duty to expand our outreach. San Jose and Oakland serve as symbolic representations of our commitment to addressing the multi-faceted dimensions of the homelessness crisis. Our mission transcends the mere distribution of sleeping supplies; it encompasses the recognition of the humanity of each individual and the provision of a lasting sense of security as we consistently visit the same encampments.\n\nTo tackle this critical issue, the Humane Sleep Project collaborated with Sewa Diwali and the Kannada Koota of Northern California (KKNC) to secure essential items for distribution. Generously donated by KKNC, the organization received fleece blankets, thermal socks, gloves, and beanies to assemble comprehensive winter warmth kits. Trader Joe's further supported our efforts by providing paper bags for packing the items and has committed to ongoing support through donations of food and additional sleeping supplies.\n\nOver two street outreach days, nearly 100 kits were assembled and distributed, serving as a meaningful contribution to creating a safer winter for California's homeless population. This hands-on approach allowed our organization to witness firsthand the challenging realities faced by unsheltered individuals and the profound impact that even modest acts of kindness can have on their lives.",
+      "imageUrl": "https://i.imgur.com/MklVleH.jpeg",
+      "registrationUrl": "https://drive.google.com/file/d/1CRQQ2tkhWAmeSwgbgqs8Oyj40dpX_qkm/view",
+      "id": "1748022998689"
+    }
+  ],
   "past": [
     {
-      "title": "Blizzard of Blessings 2024",
-      "date": "2024-12-23",
+      "title": "Livermore Rotary Outreach",
+      "date": "2024-08-20",
       "time": "",
-      "location": "San Jose, San Francisco",
-      "description": "The Humane Sleep Project extended its mission of compassion and support to the streets of San Jose and San Francisco. Our team distributed essential supplies to homeless individuals across both cities, aiming to provide not just physical comfort, but also a sense of dignity and care. We handed out sleeping bags and hygiene kits that included toothbrushes, toothpaste, tissues, and other daily necessities, as well as food to help ease the burden of hunger. Each item was selected to address the most immediate needs of those living without stable shelter.\n\nBeyond the supplies, our outreach was also about connection and empathy. We visited multiple homeless encampments and made it a priority to listen to the stories of the individuals we met. These conversations highlighted the personal struggles, resilience, and humanity behind each person’s circumstances. By simply listening, we offered respect and reminded people that they are not invisible — that someone sees them, values them, and cares about their well-being.\n\nThrough these efforts, the Humane Sleep Project continues to build a foundation of trust and compassion within the communities we serve. Our work in San Jose and San Francisco is just one step in a larger journey to make homelessness more humane and to inspire action from others. We are grateful for every supporter and partner who makes this possible, and we remain committed to bringing resources, hope, and human connection to those who need it most.",
-      "imageUrl": "https://imgur.com/b679DDK",
-      "registrationUrl": "https://imgur.com/b679DDK",
-      "id": "1748031004696"
+      "location": "Livermore, California",
+      "description": "From July to December 2024, the Humane Sleep Project launched a major outreach initiative in Livermore, made possible through a generous $3,500 grant from the Livermore Rotary Club. With these funds, we were able to purchase and distribute 100 sleeping bags, 120 hygiene kits, and 120 blankets to members of the local homeless community. Each kit was thoughtfully assembled with essential items to help individuals meet basic needs and endure the challenges of living without shelter, especially as colder months approached.\n\nThis effort was strengthened by the collaboration and support of several local nonprofits and organizations. Groups such as Cornerstone Church and Shepherd’s Gate partnered with us in distributing the supplies across various parts of Livermore. Their involvement not only expanded our reach but also deepened the collective impact of our mission. Together, we created a network of support that allowed more individuals to be served with care, efficiency, and dignity.\n\nThe Livermore outreach stands as a testament to the power of community partnerships and the tangible difference that targeted funding can make. Through the coordinated efforts of nonprofits, local supporters, and our dedicated team, we were able to bring warmth, hygiene, and hope to over a hundred individuals in need. The Humane Sleep Project remains committed to continuing this momentum and advocating for compassionate responses to homelessness across California.",
+      "imageUrl": "https://imgur.com/ZjkvkrR",
+      "registrationUrl": "https://imgur.com/ZjkvkrR",
+      "id": "1748031311852"
     }
   ]
 }
