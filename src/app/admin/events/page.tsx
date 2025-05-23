@@ -14,8 +14,6 @@ import {
   IconButton,
   Card,
   CardContent,
-  useTheme,
-  useMediaQuery,
   Tabs,
   Tab
 } from '@mui/material';
@@ -31,8 +29,6 @@ export default function EventsAdmin() {
   const [open, setOpen] = useState(false);
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
   const [currentTab, setCurrentTab] = useState(0);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [formData, setFormData] = useState<Partial<Event>>({
     title: '',
     date: '',
@@ -179,9 +175,7 @@ export default function EventsAdmin() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       style={{ 
-        minWidth: isMobile ? '280px' : '320px',
-        margin: '0 16px',
-        flex: '0 0 auto',
+        width: '100%',
         position: 'relative'
       }}
     >
@@ -197,6 +191,7 @@ export default function EventsAdmin() {
           overflow: 'hidden',
           transition: 'transform 0.3s ease-in-out',
           cursor: 'pointer',
+          maxHeight: '500px',
           '&:hover': {
             transform: 'translateY(-8px)',
             boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)'
@@ -401,25 +396,15 @@ export default function EventsAdmin() {
       </Box>
 
       <Box sx={{ 
-        display: 'flex',
-        overflowX: 'auto',
-        gap: 2,
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          sm: 'repeat(2, 1fr)',
+          md: 'repeat(3, 1fr)'
+        },
+        gap: 3,
         pb: 2,
-        px: 1,
-        '&::-webkit-scrollbar': {
-          height: '8px',
-        },
-        '&::-webkit-scrollbar-track': {
-          background: 'rgba(255, 255, 255, 0.1)',
-          borderRadius: '4px',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          background: 'rgba(255, 255, 255, 0.2)',
-          borderRadius: '4px',
-          '&:hover': {
-            background: 'rgba(255, 255, 255, 0.3)',
-          },
-        },
+        px: 1
       }}>
         {(currentTab === 0 ? events.upcoming : events.past).map((event) => (
           <EventCard key={event.id} event={event} />

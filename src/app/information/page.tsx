@@ -2,6 +2,7 @@
 import { RESOURCE_MAP_URL } from '@/utils/constants';
 import { pageStyles } from '@/styles/pages/information/styles';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Link } from '@mui/material';
+import Image from 'next/image';
 
 export default function Information() {
   return (
@@ -52,11 +53,18 @@ export default function Information() {
                   (Source: HUD 2023 Point-in-Time Count)
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', my: 3 }}>
-                  <img
-                    src="/images/information/homeless_pie_chart.png"
-                    alt="Pie chart showing 28% of U.S. homeless population is in California and 72% in the rest of the U.S."
-                    style={{ maxWidth: '400px', width: '100%', height: 'auto', borderRadius: 12, boxShadow: '0 2px 16px rgba(0,0,0,0.2)' }}
-                  />
+                  <Box sx={{ position: 'relative', width: '100%', maxWidth: '400px', height: '300px' }}>
+                    <Image
+                      src="/images/information/homeless_pie_chart.png"
+                      alt="Pie chart showing 28% of U.S. homeless population is in California and 72% in the rest of the U.S."
+                      fill
+                      style={{ 
+                        objectFit: 'contain',
+                        borderRadius: 12,
+                        boxShadow: '0 2px 16px rgba(0,0,0,0.2)'
+                      }}
+                    />
+                  </Box>
                   <Typography variant="caption" sx={{ mt: 1, color: 'rgba(255,255,255,0.7)' }}>
                     Share of U.S. Homeless Population in California (2023)
                   </Typography>
@@ -124,11 +132,18 @@ export default function Information() {
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', my: 4 }}>
-                <img
-                  src="/images/information/homeless_over_time.png"
-                  alt="Line graph showing California homeless population over time from 2015 to 2023."
-                  style={{ maxWidth: '600px', width: '100%', height: 'auto', borderRadius: 12, boxShadow: '0 2px 16px rgba(0,0,0,0.2)' }}
-                />
+                <Box sx={{ position: 'relative', width: '100%', maxWidth: '600px', height: '400px' }}>
+                  <Image
+                    src="/images/information/homeless_over_time.png"
+                    alt="Line graph showing California homeless population over time from 2015 to 2023."
+                    fill
+                    style={{ 
+                      objectFit: 'contain',
+                      borderRadius: 12,
+                      boxShadow: '0 2px 16px rgba(0,0,0,0.2)'
+                    }}
+                  />
+                </Box>
                 <Typography variant="caption" sx={{ mt: 1, color: 'rgba(255,255,255,0.7)' }}>
                   California Homeless Population Over Time (2015–2023)
                 </Typography>

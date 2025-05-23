@@ -171,7 +171,7 @@ function Navigation() {
           </>
         ) : (
           <Tabs
-            value={NAVIGATION_ITEMS.findIndex(item => item.path === pathname)}
+            value={Math.max(0, NAVIGATION_ITEMS.findIndex(item => item.path === pathname))}
             onChange={(_, newValue) => handleNavigation(NAVIGATION_ITEMS[newValue].path)}
             textColor="inherit"
             indicatorColor="secondary"
