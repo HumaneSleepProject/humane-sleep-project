@@ -37,7 +37,7 @@ export default function Information() {
                 📊 California's Homelessness Crisis: A Statistical Outlier
               </Typography>
               <Box sx={{ maxWidth: '80ch', mx: 'auto', mt: 2 }}>
-                <Typography variant="body1" sx={{ my: 2 }}>
+                <Typography variant="body1" sx={{ my: 2, color: 'rgba(255, 255, 255, 0.8)' }}>
                   California is home to over 28% of the entire nation's homeless population, despite only making up about 12% of the U.S. population. This disparity illustrates the severity and concentration of homelessness in the state.
                 </Typography>
                 <Typography variant="h5" sx={{ ...pageStyles.cardTitle, fontSize: '1.5rem', mt: 3, mb: 1 }}>
@@ -48,7 +48,7 @@ export default function Information() {
                   <li>Total U.S. Homeless Population: ~653,000</li>
                   <li>Percentage of U.S. Homeless in California: 28%+</li>
                 </Box>
-                <Typography variant="caption" display="block" sx={{ fontStyle: 'italic' }}>
+                <Typography variant="caption" display="block" sx={{ fontStyle: 'italic', color: 'rgba(255, 255, 255, 0.7)' }}>
                   (Source: HUD 2023 Point-in-Time Count)
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', my: 3 }}>
@@ -119,7 +119,7 @@ export default function Information() {
                 </Table>
               </TableContainer>
               <Box sx={{ maxWidth: '80ch', mx: 'auto', mt: 2 }}>
-                <Typography variant="body1" sx={{ my: 2 }}>
+                <Typography variant="body1" sx={{ my: 2, color: 'rgba(255, 255, 255, 0.8)' }}>
                   Many of these cities rank in the top 20 nationwide, making California home to more high-ranking homeless cities than any other state.
                 </Typography>
               </Box>
@@ -141,7 +141,7 @@ export default function Information() {
                 🏕️ Unsheltered Homelessness in California
               </Typography>
               <Box sx={{ maxWidth: '80ch', mx: 'auto', mt: 2 }}>
-                <Typography variant="body1" sx={{ my: 2 }}>
+                <Typography variant="body1" sx={{ my: 2, color: 'rgba(255, 255, 255, 0.8)' }}>
                   California continues to lead the nation in unsheltered homelessness:
                 </Typography>
                 <Box component="ul" sx={{ ...pageStyles.list, pl: 2, mb: 2 }}>
@@ -164,7 +164,7 @@ export default function Information() {
                 🧠 Why Is Homelessness So High in California?
               </Typography>
               <Box sx={{ maxWidth: '80ch', mx: 'auto', mt: 2 }}>
-                <Typography variant="body1" sx={{ my: 2 }}>
+                <Typography variant="body1" sx={{ my: 2, color: 'rgba(255, 255, 255, 0.8)' }}>
                   Several key factors contribute to the state's disproportionate numbers:
                 </Typography>
                 <Box>
