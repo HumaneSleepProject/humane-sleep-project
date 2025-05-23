@@ -82,7 +82,13 @@ export default function EventDialog({ event, open, onClose }: EventDialogProps) 
             >
               Date & Time
             </Typography>
-            <Typography variant="h6" sx={{ mt: 2 }}>
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                mt: 2,
+                color: 'rgba(255, 255, 255, 0.8)'
+              }}
+            >
               {new Date(event.date + 'T00:00:00').toLocaleDateString('en-US', {
                 weekday: 'long',
                 year: 'numeric',

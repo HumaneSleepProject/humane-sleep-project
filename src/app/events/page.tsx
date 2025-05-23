@@ -8,8 +8,6 @@ import {
   Button, 
   Card,
   CardContent,
-  useTheme,
-  useMediaQuery,
   Tabs,
   Tab
 } from '@mui/material';
@@ -23,8 +21,6 @@ export default function Events() {
   const [events] = useState<EventsData>(eventsData);
   const [currentTab, setCurrentTab] = useState(0);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setCurrentTab(newValue);
@@ -36,9 +32,7 @@ export default function Events() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       style={{ 
-        minWidth: isMobile ? '280px' : '320px',
-        margin: '0 16px',
-        flex: '0 0 auto',
+        width: '100%',
         position: 'relative'
       }}
     >
@@ -54,6 +48,7 @@ export default function Events() {
           overflow: 'hidden',
           transition: 'transform 0.3s ease-in-out',
           cursor: 'pointer',
+          maxHeight: '500px',
           '&:hover': {
             transform: 'translateY(-8px)',
             boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)'
@@ -133,7 +128,9 @@ export default function Events() {
               WebkitLineClamp: 3,
               WebkitBoxOrient: 'vertical',
               overflow: 'hidden',
-              textOverflow: 'ellipsis'
+              textOverflow: 'ellipsis',
+              maxHeight: '4.5em',
+              lineHeight: '1.5em'
             }}
           >
             {event.description}
@@ -211,25 +208,15 @@ export default function Events() {
       </Box>
 
       <Box sx={{ 
-        display: 'flex',
-        overflowX: 'auto',
-        gap: 2,
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          sm: 'repeat(2, 1fr)',
+          md: 'repeat(3, 1fr)'
+        },
+        gap: 3,
         pb: 2,
-        px: 1,
-        '&::-webkit-scrollbar': {
-          height: '8px',
-        },
-        '&::-webkit-scrollbar-track': {
-          background: 'rgba(255, 255, 255, 0.1)',
-          borderRadius: '4px',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          background: 'rgba(255, 255, 255, 0.2)',
-          borderRadius: '4px',
-          '&:hover': {
-            background: 'rgba(255, 255, 255, 0.3)',
-          },
-        },
+        px: 1
       }}>
         {(currentTab === 0 ? events.upcoming : events.past).map((event) => (
           <EventCard key={event.id} event={event} />
