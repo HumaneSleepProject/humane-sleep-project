@@ -11,16 +11,5 @@
       "id": "1748022998689"
     }
   ],
-  "past": [
-    {
-      "title": "test past event",
-      "date": "2001-09-08",
-      "time": "10:00",
-      "location": "Dublin, CA",
-      "description": "Birth of Vinay",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg",
-      "registrationUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg",
-      "id": "1746652504742"
-    }
-  ]
+  "past": []
 }
