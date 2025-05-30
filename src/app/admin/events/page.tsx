@@ -628,11 +628,13 @@ export default function EventsAdmin() {
         </DialogActions>
       </Dialog>
 
-      <DynamicEventDialog
-        event={selectedEvent}
-        open={open}
-        onClose={handleClose}
-      />
+      {selectedEvent && (
+        <DynamicEventDialog
+          event={selectedEvent}
+          open={!!selectedEvent}
+          onClose={() => setSelectedEvent(null)}
+        />
+      )}
     </Container>
   );
 } 
