@@ -117,11 +117,20 @@ export default function About() {
             </ul>
           </Box>
           <Box sx={{ flex: 1, minWidth: 280, display: 'flex', justifyContent: 'center' }}>
-            <img
-              src="/images/information/HSPeffect.png"
-              alt="Humane Sleep Projects Effect Bar Graph"
-              style={{ maxWidth: '100%', height: 'auto', borderRadius: 12, boxShadow: '0 4px 24px rgba(0,0,0,0.10)' }}
-            />
+            <Box sx={{ position: 'relative', width: '100%', height: 'auto' }}>
+              <Image
+                src="/images/information/HSPeffect.png"
+                alt="Humane Sleep Projects Effect Bar Graph"
+                width={600}
+                height={400}
+                style={{ 
+                  maxWidth: '100%', 
+                  height: 'auto', 
+                  borderRadius: 12, 
+                  boxShadow: '0 4px 24px rgba(0,0,0,0.10)'
+                }}
+              />
+            </Box>
           </Box>
         </Box>
         <Typography variant="body1" sx={{ textAlign: 'center', mt: 4, color: 'text.secondary' }}>

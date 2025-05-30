@@ -32,18 +32,19 @@ export default function Events() {
     [currentTab, events]
   );
 
+  const formatEventDate = useCallback((date: string) => {
+    return new Date(date).toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }, []);
+
   const EventCard = useCallback(({ event }: { event: Event }) => {
     const endMeasure = measureComponentRender('EventCard');
     
-    const formattedDate = useMemo(() => 
-      new Date(event.date).toLocaleDateString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }),
-      [event.date]
-    );
+    const formattedDate = formatEventDate(event.date);
 
     React.useEffect(() => {
       endMeasure();
