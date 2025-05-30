@@ -43,12 +43,7 @@ export default function Events() {
 
   const EventCard = useCallback(({ event }: { event: Event }) => {
     const endMeasure = measureComponentRender('EventCard');
-    
     const formattedDate = formatEventDate(event.date);
-
-    React.useEffect(() => {
-      endMeasure();
-    }, [endMeasure]);
 
     return (
       <motion.div
@@ -76,7 +71,10 @@ export default function Events() {
               transform: 'translateY(-4px)',
             }
           }}
-          onClick={() => setSelectedEvent(event)}
+          onClick={() => {
+            endMeasure();
+            setSelectedEvent(event);
+          }}
         >
           <Box sx={{ 
             position: 'relative',
@@ -176,7 +174,7 @@ export default function Events() {
         </Card>
       </motion.div>
     );
-  }, []);
+  }, [formatEventDate]);
 
   return (
     <Container maxWidth="lg" sx={{ py: 8 }}>
