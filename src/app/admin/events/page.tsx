@@ -21,7 +21,7 @@ import { Delete as DeleteIcon, Edit as EditIcon, Add as AddIcon } from '@mui/ico
 import { motion } from 'framer-motion';
 import { Event, EventsData } from '@/utils/events';
 import eventsData from '@/data/events.json';
-import EventDialog from '@/components/events/EventDialog';
+import DynamicEventDialog from '@/components/events/DynamicEventDialog';
 import Image from 'next/image';
 
 export default function EventsAdmin() {
@@ -628,13 +628,11 @@ export default function EventsAdmin() {
         </DialogActions>
       </Dialog>
 
-      {selectedEvent && (
-        <EventDialog
-          event={selectedEvent}
-          open={!!selectedEvent}
-          onClose={() => setSelectedEvent(null)}
-        />
-      )}
+      <DynamicEventDialog
+        event={selectedEvent}
+        open={open}
+        onClose={handleClose}
+      />
     </Container>
   );
 } 

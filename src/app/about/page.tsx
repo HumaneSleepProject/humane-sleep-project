@@ -85,6 +85,49 @@ export default function About() {
           ))}
         </Box>
       </Box>
+
+      {/* Impact Section */}
+      <Box sx={{ mt: 12, mb: 8 }}>
+        <Typography variant="h3" sx={{ textAlign: 'center', fontWeight: 700, mb: 4 }}>
+          Our Impact
+        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 6, maxWidth: '1100px', mx: 'auto' }}>
+          <Box sx={{ flex: 1, minWidth: 280 }}>
+            <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
+              2024 Highlights
+            </Typography>
+            <ul style={{ fontSize: '1.1rem', marginBottom: 16 }}>
+              <li>500 self care kits distributed</li>
+              <li>100 sleeping bags distributed</li>
+              <li>400 blankets distributed</li>
+              <li>400 beanies and socks distributed</li>
+              <li>15 partnerships</li>
+              <li>6 cities served</li>
+            </ul>
+            <Typography variant="h5" sx={{ fontWeight: 600, mb: 2, mt: 4 }}>
+              2023 Highlights
+            </Typography>
+            <ul style={{ fontSize: '1.1rem' }}>
+              <li>172 self care kits distributed</li>
+              <li>7 sleeping bags distributed</li>
+              <li>26 blankets distributed</li>
+              <li>18 beanies and socks distributed</li>
+              <li>4 partnerships</li>
+              <li>2 cities served</li>
+            </ul>
+          </Box>
+          <Box sx={{ flex: 1, minWidth: 280, display: 'flex', justifyContent: 'center' }}>
+            <img
+              src="/images/information/HSPeffect.png"
+              alt="Humane Sleep Projects Effect Bar Graph"
+              style={{ maxWidth: '100%', height: 'auto', borderRadius: 12, boxShadow: '0 4px 24px rgba(0,0,0,0.10)' }}
+            />
+          </Box>
+        </Box>
+        <Typography variant="body1" sx={{ textAlign: 'center', mt: 4, color: 'text.secondary' }}>
+          Humane Sleep Project has rapidly expanded its reach and impact, more than doubling the number of people and cities served in just one year. Our growth is a testament to the power of community, collaboration, and compassion.
+        </Typography>
+      </Box>
     </Container>
   );
 } 

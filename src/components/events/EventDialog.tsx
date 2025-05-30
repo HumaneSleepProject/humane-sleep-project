@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 import {
   Dialog,
@@ -21,6 +21,16 @@ interface EventDialogProps {
 export default function EventDialog({ event, open, onClose }: EventDialogProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  // Memoize the formatted date
+  const formattedDate = useMemo(() => {
+    return new Date(event.date + 'T00:00:00').toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }, [event.date]);
 
   return (
     <Dialog
@@ -63,7 +73,8 @@ export default function EventDialog({ event, open, onClose }: EventDialogProps) 
               style={{
                 objectFit: 'cover',
               }}
-              priority
+              loading="lazy"
+              quality={75}
             />
           </Box>
           <Box sx={{ 
@@ -89,12 +100,7 @@ export default function EventDialog({ event, open, onClose }: EventDialogProps) 
                 color: 'rgba(255, 255, 255, 0.8)'
               }}
             >
-              {new Date(event.date + 'T00:00:00').toLocaleDateString('en-US', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
+              {formattedDate}
               {event.time && ` at ${event.time}`}
             </Typography>
 
