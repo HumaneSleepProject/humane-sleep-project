@@ -34,61 +34,28 @@ export default function About() {
         </Box>
       </Box>
 
-      {/* Team Section */}
-      <Box sx={pageStyles.teamSection}>
+      {/* Impact Section */}
+      <Box sx={{ mb: 12 }}>
         <Typography 
           variant="h3" 
-          sx={pageStyles.teamTitle}
+          sx={{ 
+            textAlign: 'center', 
+            fontWeight: 700, 
+            mb: 4,
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: '-10px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '4px',
+              background: 'white',
+              borderRadius: '2px'
+            }
+          }}
         >
-          Meet Our Team
-        </Typography>
-
-        <Box sx={pageStyles.teamGrid}>
-          {TEAM_MEMBERS.map((member, index) => (
-            <Box
-              key={index}
-              sx={pageStyles.teamCard}
-            >
-              <Box
-                className="team-image"
-                sx={pageStyles.teamImage}
-              >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                />
-              </Box>
-              
-              <Typography 
-                variant="h5" 
-                sx={pageStyles.memberName}
-              >
-                {member.name}
-              </Typography>
-              
-              <Typography 
-                variant="subtitle1" 
-                sx={pageStyles.memberRole}
-              >
-                {member.role}
-              </Typography>
-              
-              <Typography 
-                variant="body1" 
-                sx={pageStyles.memberBio}
-              >
-                {member.bio}
-              </Typography>
-            </Box>
-          ))}
-        </Box>
-      </Box>
-
-      {/* Impact Section */}
-      <Box sx={{ mt: 12, mb: 8 }}>
-        <Typography variant="h3" sx={{ textAlign: 'center', fontWeight: 700, mb: 4 }}>
           Our Impact
         </Typography>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 6, maxWidth: '1100px', mx: 'auto' }}>
@@ -136,6 +103,72 @@ export default function About() {
         <Typography variant="body1" sx={{ textAlign: 'center', mt: 4, color: 'text.secondary' }}>
           Humane Sleep Project has rapidly expanded its reach and impact, more than doubling the number of people and cities served in just one year. Our growth is a testament to the power of community, collaboration, and compassion.
         </Typography>
+      </Box>
+
+      {/* Team Section */}
+      <Box sx={pageStyles.teamSection}>
+        <Typography 
+          variant="h3" 
+          sx={{ 
+            ...pageStyles.teamTitle,
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: '-10px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '4px',
+              background: 'white',
+              borderRadius: '2px'
+            }
+          }}
+        >
+          Meet Our Team
+        </Typography>
+
+        <Box sx={pageStyles.teamGrid}>
+          {TEAM_MEMBERS.map((member, index) => (
+            <Box
+              key={index}
+              sx={pageStyles.teamCard}
+            >
+              <Box
+                className="team-image"
+                sx={pageStyles.teamImage}
+              >
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </Box>
+              
+              <Typography 
+                variant="h5" 
+                sx={pageStyles.memberName}
+              >
+                {member.name}
+              </Typography>
+              
+              <Typography 
+                variant="subtitle1" 
+                sx={pageStyles.memberRole}
+              >
+                {member.role}
+              </Typography>
+              
+              <Typography 
+                variant="body1" 
+                sx={pageStyles.memberBio}
+              >
+                {member.bio}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
       </Box>
     </Container>
   );
