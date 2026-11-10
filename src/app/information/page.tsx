@@ -3,6 +3,8 @@ import { RESOURCE_MAP_URL } from '@/utils/constants';
 import { pageStyles } from '@/styles/pages/information/styles';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Link } from '@mui/material';
 import Image from 'next/image';
+import ResourceDirectory from '@/components/ResourceDirectory';
+import PartnerRequest from '@/components/PartnerRequest';
 
 export default function Information() {
   return (
@@ -13,10 +15,12 @@ export default function Information() {
             Information & Resources
           </Typography>
           
+          <ResourceDirectory />
+
           {/* Map Section */}
           <Box sx={pageStyles.mapContainer}>
             <Typography variant="h4" sx={pageStyles.mapTitle}>
-              Resource Map
+              Map of services
             </Typography>
             <Box sx={pageStyles.mapWrapper}>
               <iframe
@@ -30,6 +34,8 @@ export default function Information() {
               />
             </Box>
           </Box>
+
+          <PartnerRequest />
 
           <Box sx={{ mt: 4, color: 'text.primary' }}> {/* Main container for the new content, ensure default text color */}
             {/* California's Homelessness Crisis: A Statistical Outlier */}
