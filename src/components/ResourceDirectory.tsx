@@ -108,7 +108,7 @@ export default function ResourceDirectory() {
 
   return (
     <Box component="section" aria-labelledby="find-help" sx={{ mb: 12, maxWidth: '1000px', mx: 'auto' }}>
-      <Typography id="find-help" variant="h4" sx={{ color: '#fff', fontWeight: 700, mb: 2 }}>
+      <Typography id="find-help" variant="h4" sx={{ color: "#fff", fontWeight: 700, mb: 2, scrollMarginTop: "88px" }}>
         Find help near you
       </Typography>
 

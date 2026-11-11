@@ -16,6 +16,20 @@ export const SITE_CONFIG = {
   donateUrl: "https://www.paypal.com/donate/?hosted_button_id=24CGE6XCKU4H4"
 } as const;
 
+// Impact figures shown on the homepage. Source: HSP "Yearly Performance" sheet.
+// Update here when a new year is reported. Do not add a number that HSP has not reported.
+export const IMPACT = {
+  year: 2024,
+  cities: 6,
+  partners: 15,
+  items: [
+    { label: 'Sleeping bags', value: 100 },
+    { label: 'Blankets', value: 400 },
+    { label: 'Beanies & socks', value: 400 },
+    { label: 'Self-care kits', value: 500 },
+  ],
+} as const;
+
 // Partners and donors
 export const PARTNERS = [
   {
