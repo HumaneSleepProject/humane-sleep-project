@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import ImageMasonry from "@/components/common/ImageMasonry";
-import { SITE_CONFIG } from "@/utils/constants";
+import { IMPACT, SITE_CONFIG } from "@/utils/constants";
 import { getGalleryImages } from "@/utils/gallery";
 
 export default async function Home() {
   const galleryImages = await getGalleryImages();
+  const totalItems = IMPACT.items.reduce((sum, i) => sum + i.value, 0);
 
   return (
     <main>
@@ -17,8 +18,13 @@ export default async function Home() {
               <h1 className="heading-responsive font-bold text-white mb-6">
                 {SITE_CONFIG.name}
               </h1>
-              <p className="text-responsive text-gray-200 mb-8">
+              <p className="text-responsive text-gray-200 mb-4">
                 {SITE_CONFIG.tagline}
+              </p>
+              <p className="text-gray-300 mb-8 max-w-xl">
+                We believe everyone deserves a comfortable rest, no matter who, where, or why. Our team works directly
+                with unhoused neighbors in the Tri-Valley, Alameda and Contra Costa Counties to deliver essentials and
+                a listening ear.
               </p>
               <Link 
                 href={SITE_CONFIG.donateUrl}
@@ -46,6 +52,17 @@ export default async function Home() {
                   />
                 </svg>
               </Link>
+              <p className="text-gray-300 text-sm mt-4">
+                501(c)(3) nonprofit &middot; EIN {SITE_CONFIG.ein} &middot;{' '}
+                <a
+                  href="https://apps.irs.gov/app/eos/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-white"
+                >
+                  Verify with the IRS
+                </a>
+              </p>
             </div>
             <div className="flex-1 mt-8 sm:mt-0">
               <Image
@@ -58,6 +75,89 @@ export default async function Home() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Two paths: get help / give help */}
+      <section className="section-padding" aria-labelledby="paths-heading">
+        <div className="container-responsive">
+          <h2 id="paths-heading" className="sr-only">How can we help you?</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl p-8 border border-white/20 bg-black/30 backdrop-blur">
+              <h3 className="text-2xl font-bold text-white mb-3">I need help</h3>
+              <p className="text-gray-200 mb-6">
+                Find shelter, meals, showers, clinics and warm places in Livermore, Pleasanton and Dublin. Call 2-1-1
+                any time for housing and services in your language.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/information#find-help"
+                  className="inline-flex items-center justify-center px-6 py-3 min-h-[44px] rounded-lg bg-white text-gray-900 font-semibold hover:bg-gray-200"
+                >
+                  Find help near you
+                </Link>
+                <a
+                  href="tel:211"
+                  className="inline-flex items-center justify-center px-6 py-3 min-h-[44px] rounded-lg border border-white text-white font-semibold hover:bg-white/10"
+                >
+                  Call 2-1-1
+                </a>
+              </div>
+            </div>
+            <div className="rounded-xl p-8 border border-white/20 bg-black/30 backdrop-blur">
+              <h3 className="text-2xl font-bold text-white mb-3">I want to help</h3>
+              <p className="text-gray-200 mb-6">
+                A cold-weather sleeping bag rated to 15°F costs about $17 when bought in bulk. Gifts go to sleeping
+                bags, blankets, warm layers and hygiene kits for neighbors outside.
+              </p>
+              <ul className="text-gray-200 mb-6 space-y-1">
+                <li><strong className="text-white">$17</strong> puts one cold-weather sleeping bag in someone&apos;s hands</li>
+                <li><strong className="text-white">$85</strong> covers five</li>
+                <li><strong className="text-white">$1,700</strong> covers 100, enough for a full Friday meal line</li>
+              </ul>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href={SITE_CONFIG.donateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 min-h-[44px] rounded-lg text-white font-semibold"
+                  style={{ background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)' }}
+                >
+                  Donate
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-6 py-3 min-h-[44px] rounded-lg border border-white text-white font-semibold hover:bg-white/10"
+                >
+                  Volunteer or partner
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact */}
+      <section className="section-padding" aria-labelledby="impact-heading">
+        <div className="container-responsive text-center">
+          <h2 id="impact-heading" className="text-3xl font-bold text-white mb-2">
+            {totalItems.toLocaleString('en-US')} items given in {IMPACT.year}
+          </h2>
+          <p className="text-gray-200 mb-8">
+            Across {IMPACT.cities} cities with {IMPACT.partners} community partners.
+          </p>
+          <p className="text-gray-300 text-sm -mt-5 mb-8">
+            Plus about ${IMPACT.inKindValue.toLocaleString('en-US')} in donated clothing and food since 2023
+            (our estimate of its value).
+          </p>
+          <dl className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {IMPACT.items.map((item) => (
+              <div key={item.label} className="rounded-xl p-6 border border-white/20 bg-black/30">
+                <dd className="text-4xl font-bold text-white">{item.value.toLocaleString('en-US')}</dd>
+                <dt className="text-gray-200 mt-1">{item.label}</dt>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
