@@ -66,7 +66,7 @@ export const RESOURCES: Resource[] = [
     phone: '9252222273',
     website: 'https://cityservecares.org',
     notes: 'Multi-Service Center.',
-    lastVerified: GUIDE,
+    lastVerified: '2026-11-11',
   },
   {
     id: 'abode',
@@ -76,8 +76,8 @@ export const RESOURCES: Resource[] = [
     address: '3311 Pacific Ave, Livermore, CA',
     phone: '5102905948',
     website: 'https://abodeservices.org',
-    notes: 'Multi-Service Center.',
-    lastVerified: GUIDE,
+    notes: 'Multi-Service Center. Drop-in Wed and Thu, 9am-12pm.',
+    lastVerified: '2026-11-11',
   },
   {
     id: 'shepherds-gate',
@@ -85,10 +85,10 @@ export const RESOURCES: Resource[] = [
     category: 'Shelter & housing help',
     city: 'Livermore',
     address: '1660 Portola Ave, Livermore, CA',
-    phone: '8882164776',
+    phone: '9254434283',
     website: 'https://shepherdsgate.org',
-    notes: 'Shelter for women and children.',
-    lastVerified: GUIDE,
+    notes: 'Long-term residential program for women and children only. Intake line (925) 487-4141. Toll-free (888) 216-4776.',
+    lastVerified: '2026-11-11',
   },
   {
     id: 'tvh-homeless',
@@ -130,8 +130,8 @@ export const RESOURCES: Resource[] = [
     phone: '9255801616',
     hours: 'Mon-Fri, 9am-5pm',
     website: 'https://openheartkitchen.org',
-    notes: 'Showers, laundry and a place to rest. Hot meals Mon-Fri, noon-5pm.',
-    lastVerified: GUIDE,
+    notes: 'Showers Mon-Fri 9am-4pm. Laundry Mon-Fri from 9am (last load 2:30pm). Community meals Mon-Fri, noon-5pm. Open Heart Refuge overnight shelter for adults 18+, 6pm-8am daily, 7pm lottery.',
+    lastVerified: '2026-11-11',
   },
 
   // Food
