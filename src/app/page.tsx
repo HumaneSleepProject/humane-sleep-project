@@ -18,8 +18,13 @@ export default async function Home() {
               <h1 className="heading-responsive font-bold text-white mb-6">
                 {SITE_CONFIG.name}
               </h1>
-              <p className="text-responsive text-gray-200 mb-8">
+              <p className="text-responsive text-gray-200 mb-4">
                 {SITE_CONFIG.tagline}
+              </p>
+              <p className="text-gray-300 mb-8 max-w-xl">
+                We believe everyone deserves a comfortable rest, no matter who, where, or why. Our team works directly
+                with unhoused neighbors in the Tri-Valley, Alameda and Contra Costa Counties to deliver essentials and
+                a listening ear.
               </p>
               <Link 
                 href={SITE_CONFIG.donateUrl}
@@ -47,6 +52,17 @@ export default async function Home() {
                   />
                 </svg>
               </Link>
+              <p className="text-gray-300 text-sm mt-4">
+                501(c)(3) nonprofit &middot; EIN {SITE_CONFIG.ein} &middot;{' '}
+                <a
+                  href="https://apps.irs.gov/app/eos/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-white"
+                >
+                  Verify with the IRS
+                </a>
+              </p>
             </div>
             <div className="flex-1 mt-8 sm:mt-0">
               <Image
@@ -94,6 +110,11 @@ export default async function Home() {
                 A cold-weather sleeping bag rated to 15°F costs about $17 when bought in bulk. Gifts go to sleeping
                 bags, blankets, warm layers and hygiene kits for neighbors outside.
               </p>
+              <ul className="text-gray-200 mb-6 space-y-1">
+                <li><strong className="text-white">$17</strong> puts one cold-weather sleeping bag in someone&apos;s hands</li>
+                <li><strong className="text-white">$85</strong> covers five</li>
+                <li><strong className="text-white">$1,700</strong> covers 100, enough for a full Friday meal line</li>
+              </ul>
               <div className="flex flex-wrap gap-4">
                 <Link
                   href={SITE_CONFIG.donateUrl}

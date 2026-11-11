@@ -13,6 +13,7 @@ export const SITE_CONFIG = {
   name: "Humane Sleep Project",
   tagline: "Providing Compassion, One Sleep at a Time",
   logo: "/images/logo.png",
+  ein: "93-1600778",
   donateUrl: "https://www.paypal.com/donate/?hosted_button_id=24CGE6XCKU4H4"
 } as const;
 
