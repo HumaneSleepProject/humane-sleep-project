@@ -4,7 +4,8 @@ export const NAVIGATION_ITEMS = [
   { label: 'About', path: '/about' },
   { label: 'Partners', path: '/partners' },
   { label: 'Events', path: '/events' },
-  { label: 'Information', path: '/information' },
+  { label: 'Get Help', path: '/information' },
+  { label: 'Get Involved', path: '/get-involved' },
   { label: 'Contact', path: '/contact' },
 ] as const;
 
