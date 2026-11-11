@@ -1,12 +1,34 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { AppBar, Toolbar, Typography, Tabs, Tab, Box, IconButton, Drawer, List, ListItemButton, ListItemText, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Toolbar, Typography, Tabs, Tab, Box, IconButton, Drawer, List, ListItemButton, ListItemText, useMediaQuery, useTheme, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, memo } from 'react';
 import { NAVIGATION_ITEMS, SITE_CONFIG } from '@/utils/constants';
+
+const DonateButton = ({ sx }: { sx?: object }) => (
+  <Button
+    href={SITE_CONFIG.donateUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    variant="contained"
+    sx={{
+      background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+      color: '#fff',
+      fontWeight: 700,
+      textTransform: 'none',
+      minHeight: 40,
+      px: 2.5,
+      whiteSpace: 'nowrap',
+      '&:hover': { background: 'linear-gradient(135deg, #059669 0%, #047857 100%)' },
+      ...sx,
+    }}
+  >
+    Donate
+  </Button>
+);
 
 function Navigation() {
   const router = useRouter();
@@ -130,13 +152,13 @@ function Navigation() {
         
         {isMobile ? (
           <>
+            <DonateButton sx={{ ml: 'auto', mr: 1 }} />
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="end"
               onClick={handleDrawerToggle}
               sx={{ 
-                ml: 'auto',
                 transition: 'transform 0.2s ease-in-out',
                 '&:hover': {
                   transform: 'rotate(90deg)',
@@ -170,7 +192,10 @@ function Navigation() {
             </Drawer>
           </>
         ) : (
+          <>
           <Tabs
+            variant="scrollable"
+            scrollButtons="auto"
             value={Math.max(0, NAVIGATION_ITEMS.findIndex(item => item.path === pathname))}
             onChange={(_, newValue) => handleNavigation(NAVIGATION_ITEMS[newValue].path)}
             textColor="inherit"
@@ -203,6 +228,8 @@ function Navigation() {
               />
             ))}
           </Tabs>
+          <DonateButton sx={{ ml: 'auto' }} />
+          </>
         )}
       </Toolbar>
     </AppBar>

@@ -59,7 +59,7 @@ export default function PartnerRequest() {
         borderRadius: '0.75rem',
       }}
     >
-      <Typography id="partner-request" variant="h4" sx={{ color: '#fff', fontWeight: 700, mb: 1 }}>
+      <Typography id="partner-request" variant="h4" sx={{ color: "#fff", fontWeight: 700, mb: 1, scrollMarginTop: "88px" }}>
         Shelters and outreach teams: request supplies
       </Typography>
       <Typography sx={{ color: 'rgba(255,255,255,0.8)', mb: 3 }}>
