@@ -34,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# netlify build cache and local env files
+.netlify/
+.env.development
+.env.production
