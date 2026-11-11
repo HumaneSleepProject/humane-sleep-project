@@ -125,6 +125,10 @@ export default async function Home() {
           <p className="text-gray-200 mb-8">
             Across {IMPACT.cities} cities with {IMPACT.partners} community partners.
           </p>
+          <p className="text-gray-300 text-sm -mt-5 mb-8">
+            Plus about ${IMPACT.inKindValue.toLocaleString('en-US')} in donated clothing and food since 2023
+            (our estimate of its value).
+          </p>
           <dl className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {IMPACT.items.map((item) => (
               <div key={item.label} className="rounded-xl p-6 border border-white/20 bg-black/30">

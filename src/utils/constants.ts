@@ -22,6 +22,8 @@ export const IMPACT = {
   year: 2024,
   cities: 6,
   partners: 15,
+  // Estimated fair market value of donated clothing and food since 2023 (HSP's own estimate, about $1K + $2K + $4K + $4K).
+  inKindValue: 11000,
   items: [
     { label: 'Sleeping bags', value: 100 },
     { label: 'Blankets', value: 400 },
