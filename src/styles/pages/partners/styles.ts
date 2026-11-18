@@ -22,8 +22,8 @@ export const pageStyles = {
   },
   partnersGrid: {
     display: 'grid',
-    gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' },
-    gap: 4,
+    gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', sm: 'repeat(3, minmax(0, 1fr))', md: 'repeat(4, minmax(0, 1fr))' },
+    gap: { xs: 2, sm: 4 },
     mb: 8
   },
   partnerCard: {
@@ -33,8 +33,8 @@ export const pageStyles = {
     textAlign: 'center',
   },
   partnerImage: {
-    width: 180,
-    height: 180,
+    width: { xs: 140, sm: 180 },
+    height: { xs: 140, sm: 180 },
     position: 'relative',
     borderRadius: '50%',
     overflow: 'hidden',
@@ -61,8 +61,8 @@ export const pageStyles = {
   },
   donorsGrid: {
     display: 'grid',
-    gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' },
-    gap: 4
+    gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', sm: 'repeat(3, minmax(0, 1fr))', md: 'repeat(4, minmax(0, 1fr))' },
+    gap: { xs: 2, sm: 4 }
   },
   donorCard: {
     display: 'flex',
@@ -71,8 +71,9 @@ export const pageStyles = {
     textAlign: 'center',
   },
   donorImage: {
-    width: 240,
-    height: 160,
+    width: '100%',
+    maxWidth: 240,
+    aspectRatio: '3 / 2',
     position: 'relative',
     mb: 2,
   },
