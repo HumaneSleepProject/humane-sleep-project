@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Typography, Box, TextField, Button, Alert, Snackbar } from '@mui/material';
 import { CONTACT_CONFIG } from '@/utils/constants';
 import { pageStyles } from '@/styles/pages/contact/styles';
@@ -8,6 +8,13 @@ import { pageStyles } from '@/styles/pages/contact/styles';
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [subject, setSubject] = useState('');
+
+  // Pre-fill the subject when a Get Involved card sends people here (?topic=...).
+  useEffect(() => {
+    const topic = new URLSearchParams(window.location.search).get('topic');
+    if (topic) setSubject(topic.slice(0, 100));
+  }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,6 +32,7 @@ export default function ContactPage() {
       if (response.ok) {
         setSubmitted(true);
         (event.target as HTMLFormElement).reset();
+        setSubject('');
       } else {
         setError(CONTACT_CONFIG.messages.error);
       }
@@ -83,6 +91,8 @@ export default function ContactPage() {
             fullWidth
             label={CONTACT_CONFIG.fields.subject.label}
             name="subject"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
           />
           <TextField
             required

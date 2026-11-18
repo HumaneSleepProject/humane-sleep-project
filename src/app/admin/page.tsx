@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import { Box, Container, Typography } from '@mui/material';
+import NeedsAttention from '@/components/admin/NeedsAttention';
 
 const TOOLS = [
   { href: '/admin/grants', title: 'Grants & filings', body: 'Deadlines, status and next step for every funder, plus the tax and state filings HSP owes.' },
+  { href: '/admin/supplies', title: 'Supplies & orders', body: 'What we can hand out, winter-ready sleeping bag prices, and an order planner.' },
+  { href: '/admin/directory', title: 'Directory check', body: 'Which "find help" listings are out of date and need a phone call.' },
   { href: '/admin/events', title: 'Events', body: 'Add, edit or remove events shown on the public Events page.' },
 ];
 
@@ -32,6 +35,7 @@ export default function AdminHome() {
           </Link>
         ))}
       </Box>
+      <NeedsAttention />
     </Container>
   );
 }

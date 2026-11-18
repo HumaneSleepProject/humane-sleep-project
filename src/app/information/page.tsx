@@ -8,7 +8,7 @@ import PartnerRequest from '@/components/PartnerRequest';
 
 export default function Information() {
   return (
-    <Box component="main" sx={pageStyles.container}>
+    <Box sx={pageStyles.container}>
       <Box component="section" sx={pageStyles.section}>
         <Box sx={{ maxWidth: '7xl', mx: 'auto' }}>
           <Typography variant="h1" sx={pageStyles.title}>
@@ -24,6 +24,7 @@ export default function Information() {
             </Typography>
             <Box sx={pageStyles.mapWrapper}>
               <iframe
+                title="Map of local services for people experiencing homelessness"
                 src={RESOURCE_MAP_URL}
                 width="100%"
                 height="100%"
