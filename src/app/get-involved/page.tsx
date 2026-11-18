@@ -19,19 +19,19 @@ const OPTIONS = [
     title: 'Start a Dreamcatchers club',
     body: 'Students can run drives and packing days at their school. We share the playbook and help you get started.',
     cta: 'Tell us about your school',
-    href: '/contact',
+    href: '/contact?topic=Dreamcatchers%20club',
   },
   {
     title: 'Intern with us',
     body: 'Help with outreach, fundraising, events or the website, and get hands-on experience in how a nonprofit runs.',
     cta: 'Ask about internships',
-    href: '/contact',
+    href: '/contact?topic=Internship',
   },
   {
     title: 'Host a drive',
     body: 'Collect socks, blankets, hygiene items or warm clothing at your workplace, congregation or neighborhood.',
     cta: 'Plan a drive with us',
-    href: '/contact',
+    href: '/contact?topic=Host%20a%20drive',
   },
   {
     title: 'Partner with us',
@@ -49,7 +49,7 @@ const OPTIONS = [
 
 export default function GetInvolved() {
   return (
-    <main className="section-padding">
+    <div className="section-padding">
       <div className="container-responsive">
         <h1 className="heading-responsive font-bold text-white mb-4">Get involved</h1>
         <p className="text-responsive text-gray-200 mb-10 max-w-2xl">
@@ -82,6 +82,6 @@ export default function GetInvolved() {
           ))}
         </ul>
       </div>
-    </main>
+    </div>
   );
 }

@@ -58,7 +58,7 @@ export interface Filing {
 }
 
 export const FILINGS: Filing[] = [
-  { filing: 'Confirm 990-N history (2023, 2024, 2025)', agency: 'IRS', due: '2026-11-12', status: 'VERIFY', note: 'Three missed years in a row means automatic loss of tax-exempt status. Look up each year at irs.gov.' },
+  { filing: 'Confirm 990-N for 2024 and 2025', agency: 'IRS', due: '2026-11-12', status: 'VERIFY', note: '2023 is on file (checked on the IRS site Nov 17, 2026). Check that 2024 and 2025 also show up; if not, file at irs.gov/990n. Three missed years in a row means automatic loss of tax-exempt status. Also update the officer and address on file.' },
   { filing: 'Confirm CA Attorney General registration (CT-1)', agency: 'CA Attorney General', due: '2026-11-12', status: 'VERIFY', note: 'Public benefit corporations must register and renew.' },
   { filing: 'Confirm CA state tax exemption (FTB 3500/3500A)', agency: 'CA FTB', due: '2026-11-12', status: 'VERIFY', note: 'No state exemption letter found. Without it the FTB may treat HSP as taxable.' },
   { filing: 'Sales and use tax return (if annual filer)', agency: 'CDTFA', due: '2027-01-31', status: 'VERIFY', note: 'Seller\'s permit has been active since Sept 2024. Confirm the filing frequency.' },

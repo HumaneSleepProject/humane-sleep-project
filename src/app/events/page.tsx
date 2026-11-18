@@ -27,10 +27,17 @@ export default function Events() {
     setCurrentTab(newValue);
   }, []);
 
-  const currentEvents = useMemo(() => 
-    currentTab === 0 ? events.upcoming : events.past,
-    [currentTab, events]
-  );
+  // Sort by real date so old events never show as upcoming, whichever list they were saved in.
+  const { upcomingEvents, pastEvents } = useMemo(() => {
+    const d = new Date();
+    const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    const all = [...events.upcoming, ...events.past];
+    return {
+      upcomingEvents: all.filter((e) => e.date >= today).sort((a, b) => a.date.localeCompare(b.date)),
+      pastEvents: all.filter((e) => e.date < today).sort((a, b) => b.date.localeCompare(a.date)),
+    };
+  }, [events]);
+  const currentEvents = currentTab === 0 ? upcomingEvents : pastEvents;
 
   const formatEventDate = useCallback((date: string) => {
     return new Date(date).toLocaleDateString('en-US', {
@@ -237,6 +244,44 @@ export default function Events() {
           ))}
         </AnimatePresence>
       </Box>
+
+      {currentEvents.length === 0 && (
+        <Box sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.85)', py: 4 }}>
+          <Typography sx={{ mb: 2 }}>
+            {currentTab === 0
+              ? 'No events are scheduled right now. Want to host a drive or packing day with us?'
+              : 'No past events to show yet.'}
+          </Typography>
+          {currentTab === 0 && (
+            <Button
+              variant="outlined"
+              href="/contact?topic=Host%20a%20drive"
+              sx={{ color: '#fff', borderColor: '#fff', minHeight: 44 }}
+            >
+              Get in touch
+            </Button>
+          )}
+        </Box>
+      )}
+
+      {currentEvents.length === 0 && (
+        <Box sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.85)', py: 4 }}>
+          <Typography sx={{ mb: 2 }}>
+            {currentTab === 0
+              ? 'No events are scheduled right now. Want to host a drive or packing day with us?'
+              : 'No past events to show yet.'}
+          </Typography>
+          {currentTab === 0 && (
+            <Button
+              variant="outlined"
+              href="/contact?topic=Host%20a%20drive"
+              sx={{ color: '#fff', borderColor: '#fff', minHeight: 44 }}
+            >
+              Get in touch
+            </Button>
+          )}
+        </Box>
+      )}
 
       {selectedEvent && (
         <DynamicEventDialog

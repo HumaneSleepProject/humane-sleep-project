@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Box, Button, Checkbox, FormControlLabel, MenuItem, TextField, Typography } from '@mui/material';
 import { CONTACT_CONFIG } from '@/utils/constants';
 
-const ITEMS = ['Sleeping bags', 'Blankets', 'Hygiene kits', 'Warm clothing / socks', 'Tents or tarps'];
+const ITEMS = ['Sleeping bags', 'Blankets', 'Hygiene kits', 'Warm clothing / socks'];
 const CITIES = ['Livermore', 'Pleasanton', 'Dublin', 'Other'];
 
 const fieldSx = {

@@ -9,7 +9,7 @@ export default async function Home() {
   const totalItems = IMPACT.items.reduce((sum, i) => sum + i.value, 0);
 
   return (
-    <main>
+    <div>
       {/* Hero Section */}
       <section className="section-padding">
         <div className="container-responsive">
@@ -169,6 +169,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -10,12 +10,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export const metadata: Metadata = {
   title: "Humane Sleep Project",
-  description: "A nonprofit organization dedicated to improving sleep health and awareness",
+  description: "Humane Sleep Project is a Tri-Valley nonprofit giving sleeping bags, blankets, hygiene kits and warm clothing to neighbors sleeping outside, and pointing people to shelter and services.",
   icons: {
     icon: '/images/favicon.ico',
     shortcut: '/images/favicon.ico',
