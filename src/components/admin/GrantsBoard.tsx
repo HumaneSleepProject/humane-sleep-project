@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Box, Chip, Container, Typography } from '@mui/material';
 import { FILINGS, GRANTS, type Grant, type GrantStatus } from '@/data/admin/grants';
+import type { Owner } from '@/data/admin/team';
+import OwnerChips from '@/components/admin/OwnerChips';
 
 const OPEN: GrantStatus[] = ['Prospect', 'Researching', 'Drafting', 'Submitted', 'Reporting'];
 const GROUPS: { label: string; match: (g: Grant) => boolean }[] = [
@@ -40,20 +42,24 @@ function DaysChip({ iso, today }: { iso: string; today: Date | null }) {
 
 export default function GrantsBoard() {
   const [group, setGroup] = useState('Open');
+  const [owner, setOwner] = useState<Owner | null>(null);
   const [today, setToday] = useState<Date | null>(null);
   useEffect(() => setToday(new Date()), []);
 
   const rows = useMemo(() => {
     const g = GROUPS.find((x) => x.label === group) ?? GROUPS[0];
-    return GRANTS.filter(g.match).sort((a, b) => {
+    return GRANTS.filter((x) => g.match(x) && (!owner || x.owner === owner)).sort((a, b) => {
       if (a.deadline && b.deadline) return a.deadline.localeCompare(b.deadline);
       if (a.deadline) return -1;
       if (b.deadline) return 1;
       return a.funder.localeCompare(b.funder);
     });
-  }, [group]);
+  }, [group, owner]);
 
-  const filings = useMemo(() => [...FILINGS].sort((a, b) => a.due.localeCompare(b.due)), []);
+  const filings = useMemo(
+    () => FILINGS.filter((f) => !owner || f.owner === owner).sort((a, b) => a.due.localeCompare(b.due)),
+    [owner],
+  );
 
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
@@ -66,6 +72,8 @@ export default function GrantsBoard() {
         cycles. Confirm on the funder&apos;s site.
       </Typography>
 
+      <OwnerChips value={owner} onChange={setOwner} />
+
       <Typography variant="h5" component="h2" sx={{ color: '#fff', fontWeight: 700, mb: 1 }}>
         Filings and compliance
       </Typography>
@@ -76,6 +84,7 @@ export default function GrantsBoard() {
               <Typography sx={{ color: '#fff', fontWeight: 700 }}>{f.filing}</Typography>
               <Chip size="small" label={f.status} variant="outlined" sx={{ color: f.status === 'Upcoming' ? '#fff' : '#ffd27a', borderColor: 'currentColor' }} />
               <DaysChip iso={f.due} today={today} />
+              <Chip size="small" label={f.owner} sx={{ color: '#fff', backgroundColor: 'rgba(255,255,255,0.15)' }} />
             </Box>
             <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
               {f.agency} &middot; due {fmt(f.due)}
@@ -108,6 +117,7 @@ export default function GrantsBoard() {
               <Typography sx={{ color: '#fff', fontWeight: 700 }}>{g.funder}</Typography>
               <Chip size="small" label={g.status} sx={{ color: '#fff', backgroundColor: 'rgba(255,255,255,0.2)' }} />
               {g.deadline && <DaysChip iso={g.deadline} today={today} />}
+              <Chip size="small" label={g.owner} sx={{ color: '#fff', backgroundColor: 'rgba(255,255,255,0.15)' }} />
             </Box>
             <Typography sx={{ color: 'rgba(255,255,255,0.85)' }}>{g.program}</Typography>
             <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>

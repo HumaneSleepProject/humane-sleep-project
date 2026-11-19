@@ -4,11 +4,14 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Box, Chip, Typography } from '@mui/material';
 import { FILINGS, GRANTS } from '@/data/admin/grants';
+import type { Owner } from '@/data/admin/team';
+import OwnerChips from '@/components/admin/OwnerChips';
 
 interface Item {
   label: string;
   due: string;
   href: string;
+  owner: Owner;
 }
 
 const DONE = ['Won', 'Lost', 'Missed', 'Stalled', 'Not a fit'];
@@ -22,28 +25,32 @@ const daysUntil = (iso: string, today: Date) => {
 // Anything overdue, or due within 30 days, that is not already closed out.
 export default function NeedsAttention() {
   const [today, setToday] = useState<Date | null>(null);
+  const [owner, setOwner] = useState<Owner | null>(null);
   useEffect(() => setToday(new Date()), []);
   if (!today) return null;
 
   const items: Item[] = [
-    ...FILINGS.filter((f) => f.status !== 'Upcoming').map((f) => ({ label: f.filing, due: f.due, href: '/admin/grants' })),
+    ...FILINGS.filter((f) => f.status !== 'Upcoming').map((f) => ({ label: f.filing, due: f.due, href: '/admin/grants', owner: f.owner })),
     ...GRANTS.filter((g) => g.deadline && !DONE.includes(g.status)).map((g) => ({
       label: `${g.funder}: ${g.program}`,
       due: g.deadline as string,
       href: '/admin/grants',
+      owner: g.owner,
     })),
   ]
-    .filter((i) => daysUntil(i.due, today) <= 30)
+    .filter((i) => daysUntil(i.due, today) <= 30 && (!owner || i.owner === owner))
     .sort((a, b) => a.due.localeCompare(b.due))
     .slice(0, 6);
 
-  if (!items.length) return null;
+  if (!items.length && !owner) return null;
 
   return (
     <Box component="section" aria-labelledby="attention" sx={{ mt: 4 }}>
       <Typography id="attention" variant="h6" component="h2" sx={{ color: '#fff', fontWeight: 700, mb: 1 }}>
         Needs attention
       </Typography>
+      <OwnerChips value={owner} onChange={setOwner} />
+      {!items.length && <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>Nothing due soon for {owner}.</Typography>}
       <Box component="ul" sx={{ m: 0, p: 0, display: 'grid', gap: 1 }}>
         {items.map((i) => {
           const n = daysUntil(i.due, today);
@@ -59,6 +66,7 @@ export default function NeedsAttention() {
                 sx={{ color: '#111', fontWeight: 700, backgroundColor: n < 0 ? '#ff8a80' : n <= 14 ? '#ffd27a' : '#a5d6a7' }}
               />
               <Link href={i.href} style={{ color: '#fff' }}>{i.label}</Link>
+              <Chip size="small" label={i.owner} sx={{ color: '#fff', backgroundColor: 'rgba(255,255,255,0.15)' }} />
             </Box>
           );
         })}
