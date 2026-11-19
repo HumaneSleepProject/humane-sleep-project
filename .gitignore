@@ -39,3 +39,4 @@ next-env.d.ts
 .netlify/
 .env.development
 .env.production
+.env*

@@ -180,3 +180,21 @@ export const CONTACT_CONFIG = {
     }
   }
 } as const; 
+// The need, in official counts. Update when a new count is published, and keep the year on screen.
+export const NEED = {
+  county: {
+    name: 'Alameda County',
+    year: 2024,
+    total: 9450,
+    unsheltered: 6343,
+    source: 'Alameda County 2024 Point-in-Time Count',
+    url: 'https://everyonehome.org/wp-content/uploads/2024/05/2024-PIT-Count-Press-Release_FINAL_v3.pdf',
+  },
+  state: {
+    name: 'California',
+    year: 2023,
+    unshelteredPct: 75,
+    source: 'HUD 2023 Point-in-Time Count',
+    url: 'https://files.hudexchange.info/reports/published/CoC_PopSub_State_CA_2023.pdf',
+  },
+} as const;

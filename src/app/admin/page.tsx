@@ -3,9 +3,12 @@ import { Box, Container, Typography } from '@mui/material';
 import NeedsAttention from '@/components/admin/NeedsAttention';
 
 const TOOLS = [
+  { href: '/admin/tasks', title: 'Tasks', body: 'Everything that needs doing: who has it, when it is due, and what is done.' },
   { href: '/admin/grants', title: 'Grants & filings', body: 'Deadlines, status and next step for every funder, plus the tax and state filings HSP owes.' },
   { href: '/admin/supplies', title: 'Supplies & orders', body: 'What we can hand out, winter-ready sleeping bag prices, and an order planner.' },
   { href: '/admin/directory', title: 'Directory check', body: 'Which "find help" listings are out of date and need a phone call.' },
+  { href: '/admin/partners', title: 'Partnerships', body: 'Every partner, funder and prospect, who owns the relationship, and the next step.' },
+  { href: '/admin/ideas', title: 'Drive ideas', body: 'New drives and events: who is planning them and what they need.' },
   { href: '/admin/events', title: 'Events', body: 'Add, edit or remove events shown on the public Events page.' },
 ];
 

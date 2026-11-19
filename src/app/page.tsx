@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ImageMasonry from "@/components/common/ImageMasonry";
 import Reveal from "@/components/common/Reveal";
+import NeedBand from "@/components/NeedBand";
 import CountUp from "@/components/common/CountUp";
 import { IMPACT, SITE_CONFIG } from "@/utils/constants";
 import { getGalleryImages } from "@/utils/gallery";
@@ -138,6 +139,8 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <NeedBand />
 
       {/* Impact */}
       <section className="section-padding" aria-labelledby="impact-heading">

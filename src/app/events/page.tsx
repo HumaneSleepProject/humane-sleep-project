@@ -40,7 +40,7 @@ export default function Events() {
   const currentEvents = currentTab === 0 ? upcomingEvents : pastEvents;
 
   const formatEventDate = useCallback((date: string) => {
-    return new Date(date).toLocaleDateString('en-US', {
+    return new Date(date + 'T00:00:00').toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
@@ -244,25 +244,6 @@ export default function Events() {
           ))}
         </AnimatePresence>
       </Box>
-
-      {currentEvents.length === 0 && (
-        <Box sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.85)', py: 4 }}>
-          <Typography sx={{ mb: 2 }}>
-            {currentTab === 0
-              ? 'No events are scheduled right now. Want to host a drive or packing day with us?'
-              : 'No past events to show yet.'}
-          </Typography>
-          {currentTab === 0 && (
-            <Button
-              variant="outlined"
-              href="/contact?topic=Host%20a%20drive"
-              sx={{ color: '#fff', borderColor: '#fff', minHeight: 44 }}
-            >
-              Get in touch
-            </Button>
-          )}
-        </Box>
-      )}
 
       {currentEvents.length === 0 && (
         <Box sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.85)', py: 4 }}>
