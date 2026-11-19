@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import ImageMasonry from "@/components/common/ImageMasonry";
+import Reveal from "@/components/common/Reveal";
+import CountUp from "@/components/common/CountUp";
 import { IMPACT, SITE_CONFIG } from "@/utils/constants";
 import { getGalleryImages } from "@/utils/gallery";
 
@@ -15,7 +17,7 @@ export default async function Home() {
         <div className="container-responsive">
           <div className="flex-responsive items-center justify-between gap-8">
             <div className="flex-1">
-              <h1 className="heading-responsive font-bold text-white mb-6">
+              <h1 className="heading-responsive hero-title font-bold mb-6">
                 {SITE_CONFIG.name}
               </h1>
               <p className="text-responsive text-gray-200 mb-4">
@@ -64,13 +66,13 @@ export default async function Home() {
                 </a>
               </p>
             </div>
-            <div className="flex-1 mt-8 sm:mt-0">
+            <div className="flex-1 mt-8 sm:mt-0 moon-glow">
               <Image
                 src={SITE_CONFIG.logo}
                 alt={`${SITE_CONFIG.name} Logo`}
                 width={500}
                 height={500}
-                className="w-full max-w-md mx-auto"
+                className="w-full max-w-md mx-auto float-slow"
                 priority
               />
             </div>
@@ -83,7 +85,7 @@ export default async function Home() {
         <div className="container-responsive">
           <h2 id="paths-heading" className="sr-only">How can we help you?</h2>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl p-8 border border-white/20 bg-black/30 backdrop-blur">
+            <div className="rounded-xl p-8 border border-white/20 bg-black/30 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/40">
               <h3 className="text-2xl font-bold text-white mb-3">I need help</h3>
               <p className="text-gray-200 mb-6">
                 Find shelter, meals, showers, clinics and warm places in Livermore, Pleasanton and Dublin. Call 2-1-1
@@ -104,7 +106,7 @@ export default async function Home() {
                 </a>
               </div>
             </div>
-            <div className="rounded-xl p-8 border border-white/20 bg-black/30 backdrop-blur">
+            <div className="rounded-xl p-8 border border-white/20 bg-black/30 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/40">
               <h3 className="text-2xl font-bold text-white mb-3">I want to help</h3>
               <p className="text-gray-200 mb-6">
                 A cold-weather sleeping bag rated to 15°F costs about $17 when bought in bulk. Gifts go to sleeping
@@ -139,7 +141,7 @@ export default async function Home() {
 
       {/* Impact */}
       <section className="section-padding" aria-labelledby="impact-heading">
-        <div className="container-responsive text-center">
+        <Reveal className="container-responsive text-center">
           <h2 id="impact-heading" className="text-3xl font-bold text-white mb-2">
             {totalItems.toLocaleString('en-US')} items given in {IMPACT.year}
           </h2>
@@ -152,21 +154,21 @@ export default async function Home() {
           </p>
           <dl className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {IMPACT.items.map((item) => (
-              <div key={item.label} className="rounded-xl p-6 border border-white/20 bg-black/30">
-                <dd className="text-4xl font-bold text-white">{item.value.toLocaleString('en-US')}</dd>
+              <div key={item.label} className="stat-card rounded-xl p-6 border border-white/20 bg-black/30">
+                <dd className="text-4xl md:text-5xl font-bold text-white"><CountUp value={item.value} /></dd>
                 <dt className="text-gray-200 mt-1">{item.label}</dt>
               </div>
             ))}
           </dl>
-        </div>
+        </Reveal>
       </section>
 
       {/* Mission Section */}
       <section className="section-padding">
         <div className="container-responsive text-center">
-          <div className="mt-8">
+          <Reveal className="mt-8">
             <ImageMasonry images={galleryImages} />
-          </div>
+          </Reveal>
         </div>
       </section>
     </div>
