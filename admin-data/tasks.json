@@ -1,0 +1,60 @@
+[
+  {
+    "id": "seed-1",
+    "title": "Register for the mandatory Tri-Valley workshop (10am)",
+    "owner": "Grants intern",
+    "status": "Doing",
+    "due": "2026-12-02",
+    "notes": "Required before the application opens Nov 23.",
+    "by": "Claude test",
+    "at": "2026-11-18"
+  },
+  {
+    "id": "seed-2",
+    "title": "Create the Walmart Spark Good account and submit",
+    "owner": "Grants intern",
+    "status": "To do",
+    "due": "2026-11-30",
+    "notes": "Final 2026 cycle. Missed in 2024."
+  },
+  {
+    "id": "seed-3",
+    "title": "Confirm 990-N is on file for 2024 and 2025",
+    "owner": "CFO",
+    "status": "To do",
+    "due": "2026-11-20",
+    "notes": "File at irs.gov/990n if missing."
+  },
+  {
+    "id": "seed-4",
+    "title": "Check Good360 catalog for sleeping bags before ordering",
+    "owner": "CFO",
+    "status": "To do",
+    "due": "",
+    "notes": "Free membership."
+  },
+  {
+    "id": "seed-5",
+    "title": "Pick who counts as a sponsor and draft outreach",
+    "owner": "CEO",
+    "status": "To do",
+    "due": "",
+    "notes": "Drafts only until reviewed."
+  },
+  {
+    "id": "seed-6",
+    "title": "Call 10 directory listings that are over 6 months old",
+    "owner": "Ops intern",
+    "status": "To do",
+    "due": "",
+    "notes": "Use Directory check, oldest first."
+  },
+  {
+    "id": "seed-7",
+    "title": "Plan this winter outreach (bags, kits, volunteers)",
+    "owner": "COO",
+    "status": "To do",
+    "due": "2026-12-10",
+    "notes": "Cost it in Supplies & orders."
+  }
+]
