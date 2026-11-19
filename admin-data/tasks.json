@@ -3,11 +3,9 @@
     "id": "seed-1",
     "title": "Register for the mandatory Tri-Valley workshop (10am)",
     "owner": "Grants intern",
-    "status": "Doing",
+    "status": "To do",
     "due": "2026-12-02",
-    "notes": "Required before the application opens Nov 23.",
-    "by": "Claude test",
-    "at": "2026-11-18"
+    "notes": "Required before the application opens Nov 23."
   },
   {
     "id": "seed-2",
