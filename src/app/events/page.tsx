@@ -264,25 +264,6 @@ export default function Events() {
         </Box>
       )}
 
-      {currentEvents.length === 0 && (
-        <Box sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.85)', py: 4 }}>
-          <Typography sx={{ mb: 2 }}>
-            {currentTab === 0
-              ? 'No events are scheduled right now. Want to host a drive or packing day with us?'
-              : 'No past events to show yet.'}
-          </Typography>
-          {currentTab === 0 && (
-            <Button
-              variant="outlined"
-              href="/contact?topic=Host%20a%20drive"
-              sx={{ color: '#fff', borderColor: '#fff', minHeight: 44 }}
-            >
-              Get in touch
-            </Button>
-          )}
-        </Box>
-      )}
-
       {selectedEvent && (
         <DynamicEventDialog
           event={selectedEvent}
