@@ -54,5 +54,15 @@
     "status": "To do",
     "due": "2026-12-10",
     "notes": "Cost it in Supplies & orders."
+  },
+  {
+    "id": "ifb16ud2d",
+    "title": "UI test task",
+    "owner": "CEO",
+    "status": "To do",
+    "due": "",
+    "notes": "",
+    "by": "Claude test",
+    "at": "2026-11-19"
   }
 ]
