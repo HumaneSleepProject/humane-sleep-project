@@ -102,7 +102,7 @@ export const EventCMS: React.FC<EventCMSProps> = ({
             <Box>
               <Typography variant="h6">{event.title}</Typography>
               <Typography variant="body2" color="text.secondary">
-                {new Date(event.date).toLocaleDateString()}
+                {new Date(event.date + 'T00:00:00').toLocaleDateString()}
               </Typography>
             </Box>
             <Box>

@@ -40,7 +40,7 @@ export default function Events() {
   const currentEvents = currentTab === 0 ? upcomingEvents : pastEvents;
 
   const formatEventDate = useCallback((date: string) => {
-    return new Date(date).toLocaleDateString('en-US', {
+    return new Date(date + 'T00:00:00').toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
