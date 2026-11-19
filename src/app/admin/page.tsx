@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { Box, Container, Typography } from '@mui/material';
 import NeedsAttention from '@/components/admin/NeedsAttention';
-import { TEAM } from '@/data/admin/team';
 
 const TOOLS = [
+  { href: '/admin/tasks', title: 'Tasks', body: 'Everything that needs doing: who has it, when it is due, and what is done.' },
   { href: '/admin/grants', title: 'Grants & filings', body: 'Deadlines, status and next step for every funder, plus the tax and state filings HSP owes.' },
   { href: '/admin/supplies', title: 'Supplies & orders', body: 'What we can hand out, winter-ready sleeping bag prices, and an order planner.' },
   { href: '/admin/directory', title: 'Directory check', body: 'Which "find help" listings are out of date and need a phone call.' },
@@ -39,29 +39,6 @@ export default function AdminHome() {
         ))}
       </Box>
       <NeedsAttention />
-
-      <Typography variant="h6" component="h2" sx={{ color: '#fff', fontWeight: 700, mt: 5, mb: 1 }}>
-        Who does what
-      </Typography>
-      <Box component="ul" sx={{ m: 0, p: 0, display: 'grid', gap: 1.5 }}>
-        {TEAM.map((t) => (
-          <Box
-            component="li"
-            key={t.owner}
-            sx={{ listStyle: 'none', p: 2, borderRadius: '0.5rem', border: '1px solid rgba(255,255,255,0.15)', backgroundColor: 'rgba(0,0,0,0.3)' }}
-          >
-            <Typography sx={{ color: '#fff', fontWeight: 700 }}>
-              {t.owner} <span style={{ fontWeight: 400, opacity: 0.75 }}>&middot; {t.who}</span>
-            </Typography>
-            <Typography sx={{ color: 'rgba(255,255,255,0.85)', mb: 1 }}>{t.lane}</Typography>
-            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-              {t.tools.map((x) => (
-                <Link key={x.href + x.label} href={x.href} style={{ color: '#fff' }}>{x.label}</Link>
-              ))}
-            </Box>
-          </Box>
-        ))}
-      </Box>
     </Container>
   );
 }

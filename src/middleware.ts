@@ -44,5 +44,5 @@ export function middleware(request: NextRequest) {
 
 // The events API commits to GitHub, so it needs the same login as the admin pages.
 export const config = {
-  matcher: ['/admin/:path*', '/api/events/:path*', '/api/events'],
+  matcher: ['/admin/:path*', '/api/events/:path*', '/api/events', '/api/admin/:path*'],
 };

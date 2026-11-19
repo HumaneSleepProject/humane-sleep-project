@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Box, Chip, Typography } from '@mui/material';
 import { FILINGS, GRANTS } from '@/data/admin/grants';
+import type { Item } from '@/data/admin/collections';
 import type { Owner } from '@/data/admin/team';
 import OwnerChips from '@/components/admin/OwnerChips';
 
-interface Item {
+interface Row {
   label: string;
   due: string;
   href: string;
-  owner: Owner;
+  owner: string;
 }
 
 const DONE = ['Won', 'Lost', 'Missed', 'Stalled', 'Not a fit'];
@@ -22,14 +23,24 @@ const daysUntil = (iso: string, today: Date) => {
   return Math.round((new Date(y, m - 1, d).getTime() - t.getTime()) / 86_400_000);
 };
 
-// Anything overdue, or due within 30 days, that is not already closed out.
+// Anything overdue, or due within 30 days, that is not already closed out: tasks, grants and filings.
 export default function NeedsAttention() {
   const [today, setToday] = useState<Date | null>(null);
+  const [tasks, setTasks] = useState<Item[]>([]);
   const [owner, setOwner] = useState<Owner | null>(null);
-  useEffect(() => setToday(new Date()), []);
+  useEffect(() => {
+    setToday(new Date());
+    fetch('/api/admin/data?c=tasks', { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => d && setTasks(d.items))
+      .catch(() => {});
+  }, []);
   if (!today) return null;
 
-  const items: Item[] = [
+  const rows: Row[] = [
+    ...tasks
+      .filter((t) => t.due && t.status !== 'Done')
+      .map((t) => ({ label: t.title, due: t.due, href: '/admin/tasks', owner: t.owner })),
     ...FILINGS.filter((f) => f.status !== 'Upcoming').map((f) => ({ label: f.filing, due: f.due, href: '/admin/grants', owner: f.owner })),
     ...GRANTS.filter((g) => g.deadline && !DONE.includes(g.status)).map((g) => ({
       label: `${g.funder}: ${g.program}`,
@@ -40,9 +51,7 @@ export default function NeedsAttention() {
   ]
     .filter((i) => daysUntil(i.due, today) <= 30 && (!owner || i.owner === owner))
     .sort((a, b) => a.due.localeCompare(b.due))
-    .slice(0, 6);
-
-  if (!items.length && !owner) return null;
+    .slice(0, 8);
 
   return (
     <Box component="section" aria-labelledby="attention" sx={{ mt: 4 }}>
@@ -50,14 +59,18 @@ export default function NeedsAttention() {
         Needs attention
       </Typography>
       <OwnerChips value={owner} onChange={setOwner} />
-      {!items.length && <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>Nothing due soon for {owner}.</Typography>}
+      {!rows.length && (
+        <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>
+          Nothing due in the next 30 days{owner ? ` for ${owner}` : ''}.
+        </Typography>
+      )}
       <Box component="ul" sx={{ m: 0, p: 0, display: 'grid', gap: 1 }}>
-        {items.map((i) => {
+        {rows.map((i) => {
           const n = daysUntil(i.due, today);
           return (
             <Box
               component="li"
-              key={i.label}
+              key={i.href + i.label}
               sx={{ listStyle: 'none', p: 1.5, borderRadius: '0.5rem', border: '1px solid rgba(255,255,255,0.15)', backgroundColor: 'rgba(0,0,0,0.3)', display: 'flex', gap: 1.5, alignItems: 'center', flexWrap: 'wrap' }}
             >
               <Chip

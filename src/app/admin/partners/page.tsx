@@ -1,5 +1,5 @@
-import PartnersBoard from '@/components/admin/PartnersBoard';
+import DataBoard from "@/components/admin/DataBoard";
 
 export default function Page() {
-  return <PartnersBoard />;
+  return <DataBoard collection="partners" />;
 }

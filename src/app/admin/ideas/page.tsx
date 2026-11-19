@@ -1,5 +1,5 @@
-import IdeasBoard from '@/components/admin/IdeasBoard';
+import DataBoard from "@/components/admin/DataBoard";
 
 export default function Page() {
-  return <IdeasBoard />;
+  return <DataBoard collection="ideas" />;
 }
